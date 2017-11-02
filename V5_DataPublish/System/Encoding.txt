@@ -1,0 +1,5 @@
+GB2312
+UTF-8
+ISO-8859-1
+BIG5
+Shift_JIS
