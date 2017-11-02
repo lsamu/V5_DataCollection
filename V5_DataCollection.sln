@@ -1,0 +1,79 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2002
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "V5_Plugins", "V5_DataPlugins\V5_Plugins.csproj", "{30B8191A-1162-4F24-8549-9C16CB555CFF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "V5_DataCollection", "V5_DataCollection\V5_DataCollection.csproj", "{CF6B004F-AB13-4622-8F4D-1429580FABC9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "V5_WinLibs", "V5_WinLibs\V5_WinLibs.csproj", "{DB2CCFE4-81DA-4941-8FBA-BF8692300326}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "V5_AULWriter", "V5_AULWriter\V5_AULWriter.csproj", "{B08770B9-EEF0-4762-8E5B-CD7AA47F8BE0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "V5_AutoUpdate", "V5_AutoUpdate\V5_AutoUpdate.csproj", "{45DF5EAF-C813-4FFB-8BD1-F72D1F5FEA1F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "V5_DataPublish", "V5_DataPublish\V5_DataPublish.csproj", "{7A716B22-2F67-4C1D-ACE6-E8D85C9CA949}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "V5_DataPublishModule", "V5_DataPublishModule\V5_DataPublishModule.csproj", "{E56D112F-6701-406D-8C94-1CAF0FC0192A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "V5_DataWebBrowser", "V5_DataWebBrowser\V5_DataWebBrowser.csproj", "{94902BDD-1E20-436B-8462-1BCB35E4D293}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Readme", "Readme", "{726815B4-AE2C-4376-ACBA-6D2FAFAC1EDB}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{30B8191A-1162-4F24-8549-9C16CB555CFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30B8191A-1162-4F24-8549-9C16CB555CFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30B8191A-1162-4F24-8549-9C16CB555CFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30B8191A-1162-4F24-8549-9C16CB555CFF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF6B004F-AB13-4622-8F4D-1429580FABC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF6B004F-AB13-4622-8F4D-1429580FABC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF6B004F-AB13-4622-8F4D-1429580FABC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF6B004F-AB13-4622-8F4D-1429580FABC9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB2CCFE4-81DA-4941-8FBA-BF8692300326}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB2CCFE4-81DA-4941-8FBA-BF8692300326}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB2CCFE4-81DA-4941-8FBA-BF8692300326}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB2CCFE4-81DA-4941-8FBA-BF8692300326}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B08770B9-EEF0-4762-8E5B-CD7AA47F8BE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B08770B9-EEF0-4762-8E5B-CD7AA47F8BE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B08770B9-EEF0-4762-8E5B-CD7AA47F8BE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B08770B9-EEF0-4762-8E5B-CD7AA47F8BE0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45DF5EAF-C813-4FFB-8BD1-F72D1F5FEA1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45DF5EAF-C813-4FFB-8BD1-F72D1F5FEA1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45DF5EAF-C813-4FFB-8BD1-F72D1F5FEA1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45DF5EAF-C813-4FFB-8BD1-F72D1F5FEA1F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A716B22-2F67-4C1D-ACE6-E8D85C9CA949}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A716B22-2F67-4C1D-ACE6-E8D85C9CA949}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A716B22-2F67-4C1D-ACE6-E8D85C9CA949}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A716B22-2F67-4C1D-ACE6-E8D85C9CA949}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E56D112F-6701-406D-8C94-1CAF0FC0192A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E56D112F-6701-406D-8C94-1CAF0FC0192A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E56D112F-6701-406D-8C94-1CAF0FC0192A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E56D112F-6701-406D-8C94-1CAF0FC0192A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94902BDD-1E20-436B-8462-1BCB35E4D293}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94902BDD-1E20-436B-8462-1BCB35E4D293}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94902BDD-1E20-436B-8462-1BCB35E4D293}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94902BDD-1E20-436B-8462-1BCB35E4D293}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5EC865EE-47BF-4A0E-89B0-621B622AC66C}
+	EndGlobalSection
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
+	EndGlobalSection
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = V5.DataCollection.vsmdi
+	EndGlobalSection
+EndGlobal
