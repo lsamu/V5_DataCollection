@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="gb2312" ?>
+<AutoUpdater>
+	<Description>AULWriter autoUpdate</Description>
+	<Updater>
+		<Url>s</Url>
+		<LastUpdateTime>2007-07-03</LastUpdateTime>
+	</Updater>
+	<Application applicationId = "AULWriter">
+		<EntryPoint>AULWriter.exe</EntryPoint>
+		<Location>.</Location>
+		<Version>1.0.0.0</Version>
+	</Application>
+	<Files>
+		<File Ver="1.0.0.0" Name= "AULWriter.exe" />
+		<File Ver="1.0.0.0" Name= "AULWriter.pdb" />
+		<File Ver="1.0.0.0" Name= "AULWriter.vshost.exe" />
+		<File Ver="1.0.0.0" Name= "AutoUpdaterList.xml" />
+	</Files>
+</AutoUpdater>

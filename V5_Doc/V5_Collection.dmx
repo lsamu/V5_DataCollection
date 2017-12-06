@@ -1,0 +1,1525 @@
+<?xml version="1.0" encoding="GB2312"?>
+<CTOXML>
+
+<DataModels>
+  <TableCount>6</TableCount>
+  <Count>1</Count>
+</DataModels>
+
+
+<DataModels_item1>
+  <CTVER>43543230</CTVER>
+  <ID>1</ID>
+  <Name>模型1</Name>
+  <CreateDate>2016/9/7 14:03:19</CreateDate>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <OrderNo>1</OrderNo>
+  <DefDbEngine>SQLITE</DefDbEngine>
+  <DbConnectStr>TCtMetaSqliteDb</DbConnectStr>
+</DataModels_item1>
+
+
+<DataModels_item1_item0>
+  <Count>6</Count>
+</DataModels_item1_item0>
+
+
+<DataModels_item1_item0_item1>
+  <CTVER>43543230</CTVER>
+  <Name>S_DiyWebUrl</Name>
+  <Caption>自定义Web发布</Caption>
+  <CreateDate>1899/12/30</CreateDate>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <OrderNo>1</OrderNo>
+  <GraphDesc>Left=10.00
+Top=10.00</GraphDesc>
+</DataModels_item1_item0_item1>
+
+
+<DataModels_item1_item0_item1_item0>
+  <Count>7</Count>
+</DataModels_item1_item0_item1_item0>
+
+
+<DataModels_item1_item0_item1_item0_item1>
+  <CTVER>43543230</CTVER>
+  <ID>1</ID>
+  <Name>Id</Name>
+  <CreateDate>2016/9/7 14:03:52</CreateDate>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <OrderNo>1</OrderNo>
+  <DataType>2</DataType>
+  <KeyFieldType>1</KeyFieldType>
+  <Nullable>0</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item1_item0_item1>
+
+
+<DataModels_item1_item0_item1_item0_item2>
+  <CTVER>43543230</CTVER>
+  <ID>2</ID>
+  <Name>SelfId</Name>
+  <CreateDate>2016/9/7 14:03:52</CreateDate>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <OrderNo>2</OrderNo>
+  <DataType>2</DataType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item1_item0_item2>
+
+
+<DataModels_item1_item0_item1_item0_item3>
+  <CTVER>43543230</CTVER>
+  <ID>3</ID>
+  <Name>Name</Name>
+  <CreateDate>2016/9/7 14:03:52</CreateDate>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <OrderNo>3</OrderNo>
+  <DataType>1</DataType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item1_item0_item3>
+
+
+<DataModels_item1_item0_item1_item0_item4>
+  <CTVER>43543230</CTVER>
+  <ID>4</ID>
+  <Name>Url</Name>
+  <CreateDate>2016/9/7 14:03:52</CreateDate>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <OrderNo>4</OrderNo>
+  <DataType>1</DataType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item1_item0_item4>
+
+
+<DataModels_item1_item0_item1_item0_item5>
+  <CTVER>43543230</CTVER>
+  <ID>5</ID>
+  <Name>UrlEncode</Name>
+  <CreateDate>2016/9/7 14:03:52</CreateDate>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <OrderNo>5</OrderNo>
+  <DataType>1</DataType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item1_item0_item5>
+
+
+<DataModels_item1_item0_item1_item0_item6>
+  <CTVER>43543230</CTVER>
+  <ID>6</ID>
+  <Name>UrlParams</Name>
+  <CreateDate>2016/9/7 14:03:52</CreateDate>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <OrderNo>6</OrderNo>
+  <DataType>1</DataType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item1_item0_item6>
+
+
+<DataModels_item1_item0_item1_item0_item7>
+  <CTVER>43543230</CTVER>
+  <ID>7</ID>
+  <Name>CreateTime</Name>
+  <CreateDate>2016/9/7 14:03:52</CreateDate>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <OrderNo>7</OrderNo>
+  <DataType>4</DataType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item1_item0_item7>
+
+
+<DataModels_item1_item0_item2>
+  <CTVER>43543230</CTVER>
+  <Name>S_PlanTask</Name>
+  <Caption>任务计划</Caption>
+  <CreateDate>1899/12/30</CreateDate>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <OrderNo>2</OrderNo>
+  <GraphDesc>Left=255.00
+Top=10.00</GraphDesc>
+</DataModels_item1_item0_item2>
+
+
+<DataModels_item1_item0_item2_item0>
+  <Count>7</Count>
+</DataModels_item1_item0_item2_item0>
+
+
+<DataModels_item1_item0_item2_item0_item1>
+  <CTVER>43543230</CTVER>
+  <ID>1</ID>
+  <Name>CreateTime</Name>
+  <CreateDate>2016/9/7 14:03:52</CreateDate>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <OrderNo>1</OrderNo>
+  <DataType>4</DataType>
+  <Nullable>1</Nullable>
+  <DataLength>50</DataLength>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item2_item0_item1>
+
+
+<DataModels_item1_item0_item2_item0_item2>
+  <CTVER>43543230</CTVER>
+  <ID>2</ID>
+  <Name>TaskName</Name>
+  <CreateDate>2016/9/7 14:03:52</CreateDate>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <OrderNo>2</OrderNo>
+  <DataType>1</DataType>
+  <Nullable>1</Nullable>
+  <DataLength>100</DataLength>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item2_item0_item2>
+
+
+<DataModels_item1_item0_item2_item0_item3>
+  <CTVER>43543230</CTVER>
+  <ID>3</ID>
+  <Name>TaskId</Name>
+  <CreateDate>2016/9/7 14:03:52</CreateDate>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <OrderNo>3</OrderNo>
+  <DataType>2</DataType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item2_item0_item3>
+
+
+<DataModels_item1_item0_item2_item0_item4>
+  <CTVER>43543230</CTVER>
+  <ID>4</ID>
+  <Name>Status</Name>
+  <CreateDate>2016/9/7 14:03:52</CreateDate>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <OrderNo>4</OrderNo>
+  <DataType>2</DataType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item2_item0_item4>
+
+
+<DataModels_item1_item0_item2_item0_item5>
+  <CTVER>43543230</CTVER>
+  <ID>5</ID>
+  <Name>Time</Name>
+  <CreateDate>2016/9/7 14:03:52</CreateDate>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <OrderNo>5</OrderNo>
+  <DataType>1</DataType>
+  <Nullable>1</Nullable>
+  <DataLength>100</DataLength>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item2_item0_item5>
+
+
+<DataModels_item1_item0_item2_item0_item6>
+  <CTVER>43543230</CTVER>
+  <ID>6</ID>
+  <Name>Name</Name>
+  <CreateDate>2016/9/7 14:03:52</CreateDate>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <OrderNo>6</OrderNo>
+  <DataType>1</DataType>
+  <Nullable>1</Nullable>
+  <DataLength>50</DataLength>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item2_item0_item6>
+
+
+<DataModels_item1_item0_item2_item0_item7>
+  <CTVER>43543230</CTVER>
+  <ID>7</ID>
+  <Name>Id</Name>
+  <CreateDate>2016/9/7 14:03:52</CreateDate>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <OrderNo>7</OrderNo>
+  <DataType>2</DataType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item2_item0_item7>
+
+
+<DataModels_item1_item0_item3>
+  <CTVER>43543230</CTVER>
+  <Name>S_Task</Name>
+  <Caption>任务列表</Caption>
+  <CreateDate>1899/12/30</CreateDate>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <OrderNo>3</OrderNo>
+  <GraphDesc>Left=468.00
+Top=9.00</GraphDesc>
+</DataModels_item1_item0_item3>
+
+
+<DataModels_item1_item0_item3_item0>
+  <Count>48</Count>
+</DataModels_item1_item0_item3_item0>
+
+
+<DataModels_item1_item0_item3_item0_item1>
+  <CTVER>43543230</CTVER>
+  <ID>1</ID>
+  <Name>ID</Name>
+  <CreateDate>2016/9/7 14:03:52</CreateDate>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <OrderNo>1</OrderNo>
+  <DataType>2</DataType>
+  <KeyFieldType>1</KeyFieldType>
+  <IndexType>1</IndexType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item3_item0_item1>
+
+
+<DataModels_item1_item0_item3_item0_item2>
+  <CTVER>43543230</CTVER>
+  <ID>2</ID>
+  <Name>TaskClassID</Name>
+  <CreateDate>2016/9/7 14:03:52</CreateDate>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <OrderNo>2</OrderNo>
+  <DisplayName>分类Id</DisplayName>
+  <DataType>2</DataType>
+  <DefaultValue>0</DefaultValue>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item3_item0_item2>
+
+
+<DataModels_item1_item0_item3_item0_item3>
+  <CTVER>43543230</CTVER>
+  <ID>3</ID>
+  <Name>TaskName</Name>
+  <CreateDate>2016/9/7 14:03:52</CreateDate>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <OrderNo>3</OrderNo>
+  <DisplayName>任务名称</DisplayName>
+  <DataType>1</DataType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item3_item0_item3>
+
+
+<DataModels_item1_item0_item3_item0_item4>
+  <CTVER>43543230</CTVER>
+  <ID>4</ID>
+  <Name>IsSpiderUrl</Name>
+  <CreateDate>2016/9/7 14:03:52</CreateDate>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <OrderNo>4</OrderNo>
+  <DisplayName>是否采集列表</DisplayName>
+  <DataType>2</DataType>
+  <DefaultValue>0</DefaultValue>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item3_item0_item4>
+
+
+<DataModels_item1_item0_item3_item0_item5>
+  <CTVER>43543230</CTVER>
+  <ID>5</ID>
+  <Name>IsSpiderContent</Name>
+  <CreateDate>2016/9/7 14:03:52</CreateDate>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <OrderNo>5</OrderNo>
+  <DisplayName>是否采集内容</DisplayName>
+  <DataType>2</DataType>
+  <DefaultValue>0</DefaultValue>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item3_item0_item5>
+
+
+<DataModels_item1_item0_item3_item0_item6>
+  <CTVER>43543230</CTVER>
+  <ID>6</ID>
+  <Name>IsPublishContent</Name>
+  <CreateDate>2016/9/7 14:03:52</CreateDate>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <OrderNo>6</OrderNo>
+  <DisplayName>是否发布内容</DisplayName>
+  <DataType>2</DataType>
+  <DefaultValue>0</DefaultValue>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item3_item0_item6>
+
+
+<DataModels_item1_item0_item3_item0_item7>
+  <CTVER>43543230</CTVER>
+  <ID>7</ID>
+  <Name>PageEncode</Name>
+  <CreateDate>2016/9/7 14:03:52</CreateDate>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <OrderNo>7</OrderNo>
+  <DisplayName>页面编码</DisplayName>
+  <DataType>1</DataType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item3_item0_item7>
+
+
+<DataModels_item1_item0_item3_item0_item8>
+  <CTVER>43543230</CTVER>
+  <ID>8</ID>
+  <Name>CollectionType</Name>
+  <CreateDate>2016/9/7 14:03:52</CreateDate>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <OrderNo>8</OrderNo>
+  <DisplayName>采集类型</DisplayName>
+  <DataType>2</DataType>
+  <DefaultValue>0</DefaultValue>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item3_item0_item8>
+
+
+<DataModels_item1_item0_item3_item0_item9>
+  <CTVER>43543230</CTVER>
+  <ID>9</ID>
+  <Name>CollectionContent</Name>
+  <CreateDate>2016/9/7 14:03:52</CreateDate>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <OrderNo>9</OrderNo>
+  <DisplayName>采集列表内容</DisplayName>
+  <DataType>1</DataType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item3_item0_item9>
+
+
+<DataModels_item1_item0_item3_item0_item10>
+  <CTVER>43543230</CTVER>
+  <ID>10</ID>
+  <Name>LinkUrlMustIncludeStr</Name>
+  <CreateDate>2016/9/7 14:03:52</CreateDate>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <OrderNo>10</OrderNo>
+  <DisplayName>链接包含</DisplayName>
+  <DataType>1</DataType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item3_item0_item10>
+
+
+<DataModels_item1_item0_item3_item0_item11>
+  <CTVER>43543230</CTVER>
+  <ID>11</ID>
+  <Name>LinkUrlNoMustIncludeStr</Name>
+  <CreateDate>2016/9/7 14:03:52</CreateDate>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <OrderNo>11</OrderNo>
+  <DisplayName>链接不包含</DisplayName>
+  <DataType>1</DataType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item3_item0_item11>
+
+
+<DataModels_item1_item0_item3_item0_item12>
+  <CTVER>43543230</CTVER>
+  <ID>13</ID>
+  <Name>LinkUrlCutAreaStart</Name>
+  <CreateDate>2016/9/7 14:03:52</CreateDate>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <OrderNo>12</OrderNo>
+  <DisplayName>列表截取开始区域</DisplayName>
+  <DataType>1</DataType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item3_item0_item12>
+
+
+<DataModels_item1_item0_item3_item0_item13>
+  <CTVER>43543230</CTVER>
+  <ID>14</ID>
+  <Name>LinkUrlCutAreaEnd</Name>
+  <CreateDate>2016/9/7 14:03:52</CreateDate>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <OrderNo>13</OrderNo>
+  <DisplayName>列表截取结束区域</DisplayName>
+  <DataType>1</DataType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item3_item0_item13>
+
+
+<DataModels_item1_item0_item3_item0_item14>
+  <CTVER>43543230</CTVER>
+  <ID>15</ID>
+  <Name>TestViewUrl</Name>
+  <CreateDate>2016/9/7 14:03:52</CreateDate>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <OrderNo>14</OrderNo>
+  <DisplayName>测试列表地址</DisplayName>
+  <DataType>1</DataType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item3_item0_item14>
+
+
+<DataModels_item1_item0_item3_item0_item15>
+  <CTVER>43543230</CTVER>
+  <ID>16</ID>
+  <Name>IsWebOnlinePublish1</Name>
+  <CreateDate>2016/9/7 14:03:52</CreateDate>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <OrderNo>15</OrderNo>
+  <DisplayName>是否在线发布</DisplayName>
+  <DataType>2</DataType>
+  <DefaultValue>0</DefaultValue>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item3_item0_item15>
+
+
+<DataModels_item1_item0_item3_item0_item16>
+  <CTVER>43543230</CTVER>
+  <ID>17</ID>
+  <Name>IsSaveLocal2</Name>
+  <CreateDate>2016/9/7 14:03:52</CreateDate>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <OrderNo>16</OrderNo>
+  <DisplayName>是否保存本地</DisplayName>
+  <DataType>2</DataType>
+  <DefaultValue>0</DefaultValue>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item3_item0_item16>
+
+
+<DataModels_item1_item0_item3_item0_item17>
+  <CTVER>43543230</CTVER>
+  <ID>18</ID>
+  <Name>SaveFileFormat2</Name>
+  <CreateDate>2016/9/7 14:03:52</CreateDate>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <OrderNo>17</OrderNo>
+  <DisplayName>保存文件格式</DisplayName>
+  <DataType>1</DataType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item3_item0_item17>
+
+
+<DataModels_item1_item0_item3_item0_item18>
+  <CTVER>43543230</CTVER>
+  <ID>19</ID>
+  <Name>SaveDirectory2</Name>
+  <CreateDate>2016/9/7 14:03:52</CreateDate>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <OrderNo>18</OrderNo>
+  <DisplayName>保存目录</DisplayName>
+  <DataType>1</DataType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item3_item0_item18>
+
+
+<DataModels_item1_item0_item3_item0_item19>
+  <CTVER>43543230</CTVER>
+  <ID>20</ID>
+  <Name>SaveHtmlTemplate2</Name>
+  <CreateDate>2016/9/7 14:03:52</CreateDate>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <OrderNo>19</OrderNo>
+  <DisplayName>保存Html模板</DisplayName>
+  <DataType>1</DataType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item3_item0_item19>
+
+
+<DataModels_item1_item0_item3_item0_item20>
+  <CTVER>43543230</CTVER>
+  <ID>21</ID>
+  <Name>SaveIsCreateIndex2</Name>
+  <CreateDate>2016/9/7 14:03:52</CreateDate>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <OrderNo>20</OrderNo>
+  <DataType>2</DataType>
+  <DefaultValue>0</DefaultValue>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item3_item0_item20>
+
+
+<DataModels_item1_item0_item3_item0_item21>
+  <CTVER>43543230</CTVER>
+  <ID>22</ID>
+  <Name>IsSaveDataBase3</Name>
+  <CreateDate>2016/9/7 14:03:52</CreateDate>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <OrderNo>21</OrderNo>
+  <DisplayName>是否保存数据库</DisplayName>
+  <DataType>2</DataType>
+  <DefaultValue>0</DefaultValue>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item3_item0_item21>
+
+
+<DataModels_item1_item0_item3_item0_item22>
+  <CTVER>43543230</CTVER>
+  <ID>23</ID>
+  <Name>SaveDataType3</Name>
+  <CreateDate>2016/9/7 14:03:52</CreateDate>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <OrderNo>22</OrderNo>
+  <DisplayName>保存数据库类型</DisplayName>
+  <DataType>2</DataType>
+  <DefaultValue>0</DefaultValue>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item3_item0_item22>
+
+
+<DataModels_item1_item0_item3_item0_item23>
+  <CTVER>43543230</CTVER>
+  <ID>24</ID>
+  <Name>SaveDataUrl3</Name>
+  <CreateDate>2016/9/7 14:03:52</CreateDate>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <OrderNo>23</OrderNo>
+  <DisplayName>保存数据库地址</DisplayName>
+  <DataType>1</DataType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item3_item0_item23>
+
+
+<DataModels_item1_item0_item3_item0_item24>
+  <CTVER>43543230</CTVER>
+  <ID>25</ID>
+  <Name>SaveDataSQL3</Name>
+  <CreateDate>2016/9/7 14:03:52</CreateDate>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <OrderNo>24</OrderNo>
+  <DisplayName>保存数据库SQL语句</DisplayName>
+  <DataType>1</DataType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item3_item0_item24>
+
+
+<DataModels_item1_item0_item3_item0_item25>
+  <CTVER>43543230</CTVER>
+  <ID>26</ID>
+  <Name>IsSaveSQL4</Name>
+  <CreateDate>2016/9/7 14:03:52</CreateDate>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <OrderNo>25</OrderNo>
+  <DisplayName>是否保存SQL语句</DisplayName>
+  <DataType>2</DataType>
+  <DefaultValue>0</DefaultValue>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item3_item0_item25>
+
+
+<DataModels_item1_item0_item3_item0_item26>
+  <CTVER>43543230</CTVER>
+  <ID>27</ID>
+  <Name>SaveSQLContent4</Name>
+  <CreateDate>2016/9/7 14:03:52</CreateDate>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <OrderNo>26</OrderNo>
+  <DisplayName>SQL内容</DisplayName>
+  <DataType>1</DataType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item3_item0_item26>
+
+
+<DataModels_item1_item0_item3_item0_item27>
+  <CTVER>43543230</CTVER>
+  <ID>28</ID>
+  <Name>SaveSQLDirectory4</Name>
+  <CreateDate>2016/9/7 14:03:52</CreateDate>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <OrderNo>27</OrderNo>
+  <DisplayName>SQL保存目录</DisplayName>
+  <DataType>1</DataType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item3_item0_item27>
+
+
+<DataModels_item1_item0_item3_item0_item28>
+  <CTVER>43543230</CTVER>
+  <ID>29</ID>
+  <Name>Guid</Name>
+  <CreateDate>2016/9/7 14:03:52</CreateDate>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <OrderNo>28</OrderNo>
+  <DisplayName>生成Guid</DisplayName>
+  <DataType>1</DataType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item3_item0_item28>
+
+
+<DataModels_item1_item0_item3_item0_item29>
+  <CTVER>43543230</CTVER>
+  <ID>30</ID>
+  <Name>PluginSpiderUrl</Name>
+  <CreateDate>2016/9/7 14:03:52</CreateDate>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <OrderNo>29</OrderNo>
+  <DisplayName>采集地址结束后插件</DisplayName>
+  <DataType>1</DataType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item3_item0_item29>
+
+
+<DataModels_item1_item0_item3_item0_item30>
+  <CTVER>43543230</CTVER>
+  <ID>31</ID>
+  <Name>PluginSpiderContent</Name>
+  <CreateDate>2016/9/7 14:03:52</CreateDate>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <OrderNo>30</OrderNo>
+  <DisplayName>采集内容结束后插件</DisplayName>
+  <DataType>1</DataType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item3_item0_item30>
+
+
+<DataModels_item1_item0_item3_item0_item31>
+  <CTVER>43543230</CTVER>
+  <ID>32</ID>
+  <Name>PluginSaveContent</Name>
+  <CreateDate>2016/9/7 14:03:52</CreateDate>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <OrderNo>31</OrderNo>
+  <DisplayName>保存内容结束后插件</DisplayName>
+  <DataType>1</DataType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item3_item0_item31>
+
+
+<DataModels_item1_item0_item3_item0_item32>
+  <CTVER>43543230</CTVER>
+  <ID>33</ID>
+  <Name>PluginPublishContent</Name>
+  <CreateDate>2016/9/7 14:03:52</CreateDate>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <OrderNo>32</OrderNo>
+  <DisplayName>发布内容前插件</DisplayName>
+  <DataType>1</DataType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item3_item0_item32>
+
+
+<DataModels_item1_item0_item3_item0_item33>
+  <CTVER>43543230</CTVER>
+  <ID>34</ID>
+  <Name>Status</Name>
+  <CreateDate>2016/9/7 14:03:52</CreateDate>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <OrderNo>33</OrderNo>
+  <DisplayName>任务状态</DisplayName>
+  <DataType>2</DataType>
+  <DefaultValue>0</DefaultValue>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item3_item0_item33>
+
+
+<DataModels_item1_item0_item3_item0_item34>
+  <CTVER>43543230</CTVER>
+  <ID>100</ID>
+  <Name>CollectionUrlStepTime</Name>
+  <CreateDate>2016/9/7 14:10:45</CreateDate>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <OrderNo>34</OrderNo>
+  <DisplayName>采集列表暂停时间</DisplayName>
+  <DataType>2</DataType>
+  <DefaultValue>0</DefaultValue>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item3_item0_item34>
+
+
+<DataModels_item1_item0_item3_item0_item35>
+  <CTVER>43543230</CTVER>
+  <ID>35</ID>
+  <Name>CollectionContentThreadCount</Name>
+  <CreateDate>2016/9/7 14:03:52</CreateDate>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <OrderNo>35</OrderNo>
+  <DisplayName>采集内容线程个数</DisplayName>
+  <DataType>2</DataType>
+  <DefaultValue>0</DefaultValue>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item3_item0_item35>
+
+
+<DataModels_item1_item0_item3_item0_item36>
+  <CTVER>43543230</CTVER>
+  <ID>36</ID>
+  <Name>CollectionContentStepTime</Name>
+  <CreateDate>2016/9/7 14:03:52</CreateDate>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <OrderNo>36</OrderNo>
+  <DisplayName>采集内容暂停时间</DisplayName>
+  <DataType>2</DataType>
+  <DefaultValue>0</DefaultValue>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item3_item0_item36>
+
+
+<DataModels_item1_item0_item3_item0_item37>
+  <CTVER>43543230</CTVER>
+  <ID>37</ID>
+  <Name>PublishContentThreadCount</Name>
+  <CreateDate>2016/9/7 14:03:52</CreateDate>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <OrderNo>37</OrderNo>
+  <DisplayName>发布内容线程个数</DisplayName>
+  <DataType>2</DataType>
+  <DefaultValue>0</DefaultValue>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item3_item0_item37>
+
+
+<DataModels_item1_item0_item3_item0_item38>
+  <CTVER>43543230</CTVER>
+  <ID>38</ID>
+  <Name>PublishContentStepTimeMin</Name>
+  <CreateDate>2016/9/7 14:03:52</CreateDate>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <OrderNo>38</OrderNo>
+  <DisplayName>发布内容最小暂停时间</DisplayName>
+  <DataType>2</DataType>
+  <DefaultValue>0</DefaultValue>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item3_item0_item38>
+
+
+<DataModels_item1_item0_item3_item0_item39>
+  <CTVER>43543230</CTVER>
+  <ID>39</ID>
+  <Name>PublishContentStepTimeMax</Name>
+  <CreateDate>2016/9/7 14:03:52</CreateDate>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <OrderNo>39</OrderNo>
+  <DisplayName>发布内容最大暂停时间</DisplayName>
+  <DataType>2</DataType>
+  <DefaultValue>0</DefaultValue>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item3_item0_item39>
+
+
+<DataModels_item1_item0_item3_item0_item40>
+  <CTVER>43543230</CTVER>
+  <ID>42</ID>
+  <Name>DemoListUrl</Name>
+  <CreateDate>2016/9/7 14:03:52</CreateDate>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <OrderNo>40</OrderNo>
+  <DisplayName>测试列表地址</DisplayName>
+  <DataType>1</DataType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item3_item0_item40>
+
+
+<DataModels_item1_item0_item3_item0_item41>
+  <CTVER>43543230</CTVER>
+  <ID>43</ID>
+  <Name>IsPlan</Name>
+  <CreateDate>2016/9/7 14:03:52</CreateDate>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <OrderNo>41</OrderNo>
+  <DisplayName>是否计划任务</DisplayName>
+  <DataType>2</DataType>
+  <DefaultValue>0</DefaultValue>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item3_item0_item41>
+
+
+<DataModels_item1_item0_item3_item0_item42>
+  <CTVER>43543230</CTVER>
+  <ID>44</ID>
+  <Name>PlanFormat</Name>
+  <CreateDate>2016/9/7 14:03:52</CreateDate>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <OrderNo>42</OrderNo>
+  <DisplayName>任务时间格式串</DisplayName>
+  <DataType>1</DataType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item3_item0_item42>
+
+
+<DataModels_item1_item0_item3_item0_item43>
+  <CTVER>43543230</CTVER>
+  <ID>45</ID>
+  <Name>IsSource</Name>
+  <CreateDate>2016/9/7 14:03:52</CreateDate>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <OrderNo>43</OrderNo>
+  <DisplayName>是否源码采集</DisplayName>
+  <DataType>2</DataType>
+  <DefaultValue>0</DefaultValue>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item3_item0_item43>
+
+
+<DataModels_item1_item0_item3_item0_item44>
+  <CTVER>43543230</CTVER>
+  <ID>46</ID>
+  <Name>SourceText</Name>
+  <CreateDate>2016/9/7 14:03:52</CreateDate>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <OrderNo>44</OrderNo>
+  <DisplayName>源码内容</DisplayName>
+  <DataType>1</DataType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item3_item0_item44>
+
+
+<DataModels_item1_item0_item3_item0_item45>
+  <CTVER>43543230</CTVER>
+  <ID>280</ID>
+  <Name>CreateTime</Name>
+  <CreateDate>2016/9/7 14:15:17</CreateDate>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <OrderNo>45</OrderNo>
+  <DataType>4</DataType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item3_item0_item45>
+
+
+<DataModels_item1_item0_item3_item0_item46>
+  <CTVER>43543230</CTVER>
+  <ID>281</ID>
+  <Name>UpdateTime</Name>
+  <CreateDate>2016/9/7 14:15:27</CreateDate>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <OrderNo>46</OrderNo>
+  <DataType>4</DataType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item3_item0_item46>
+
+
+<DataModels_item1_item0_item3_item0_item47>
+  <CTVER>43543230</CTVER>
+  <ID>328</ID>
+  <Name>IsHandGetUrl</Name>
+  <CreateDate>2016/9/7 14:22:23</CreateDate>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <OrderNo>47</OrderNo>
+  <DisplayName>是否手动获取地址</DisplayName>
+  <DataType>2</DataType>
+  <DefaultValue>0</DefaultValue>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item3_item0_item47>
+
+
+<DataModels_item1_item0_item3_item0_item48>
+  <CTVER>43543230</CTVER>
+  <ID>329</ID>
+  <Name>HandCollectionUrlRegex</Name>
+  <CreateDate>2016/9/7 14:22:48</CreateDate>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <OrderNo>48</OrderNo>
+  <DisplayName>手动获取正则表达式</DisplayName>
+  <DataType>1</DataType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item3_item0_item48>
+
+
+<DataModels_item1_item0_item4>
+  <CTVER>43543230</CTVER>
+  <Name>S_TaskLabel</Name>
+  <Caption>任务标签</Caption>
+  <CreateDate>1899/12/30</CreateDate>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <OrderNo>4</OrderNo>
+  <GraphDesc>Left=850.00
+Top=10.00</GraphDesc>
+</DataModels_item1_item0_item4>
+
+
+<DataModels_item1_item0_item4_item0>
+  <Count>16</Count>
+</DataModels_item1_item0_item4_item0>
+
+
+<DataModels_item1_item0_item4_item0_item1>
+  <CTVER>43543230</CTVER>
+  <ID>1</ID>
+  <Name>ID</Name>
+  <CreateDate>2016/9/7 14:03:52</CreateDate>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <OrderNo>1</OrderNo>
+  <DataType>2</DataType>
+  <KeyFieldType>1</KeyFieldType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item4_item0_item1>
+
+
+<DataModels_item1_item0_item4_item0_item2>
+  <CTVER>43543230</CTVER>
+  <ID>2</ID>
+  <Name>LabelName</Name>
+  <CreateDate>2016/9/7 14:03:52</CreateDate>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <OrderNo>2</OrderNo>
+  <DisplayName>标签名称</DisplayName>
+  <DataType>1</DataType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item4_item0_item2>
+
+
+<DataModels_item1_item0_item4_item0_item3>
+  <CTVER>43543230</CTVER>
+  <ID>4</ID>
+  <Name>LabelNameCutRegex</Name>
+  <CreateDate>2016/9/7 14:03:52</CreateDate>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <OrderNo>3</OrderNo>
+  <DisplayName>标签表达式</DisplayName>
+  <DataType>1</DataType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item4_item0_item3>
+
+
+<DataModels_item1_item0_item4_item0_item4>
+  <CTVER>43543230</CTVER>
+  <ID>5</ID>
+  <Name>LabelHtmlRemove</Name>
+  <CreateDate>2016/9/7 14:03:52</CreateDate>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <OrderNo>4</OrderNo>
+  <DisplayName>标签格式移除</DisplayName>
+  <DataType>1</DataType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item4_item0_item4>
+
+
+<DataModels_item1_item0_item4_item0_item5>
+  <CTVER>43543230</CTVER>
+  <ID>7</ID>
+  <Name>LabelRemove</Name>
+  <Memo>添加表达式 移除html格式</Memo>
+  <CreateDate>2016/9/7 14:03:52</CreateDate>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <OrderNo>5</OrderNo>
+  <DisplayName>标签内容移除</DisplayName>
+  <DataType>1</DataType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item4_item0_item5>
+
+
+<DataModels_item1_item0_item4_item0_item6>
+  <CTVER>43543230</CTVER>
+  <ID>8</ID>
+  <Name>LabelReplace</Name>
+  <CreateDate>2016/9/7 14:03:52</CreateDate>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <OrderNo>6</OrderNo>
+  <DisplayName>标签内容替换</DisplayName>
+  <DataType>1</DataType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item4_item0_item6>
+
+
+<DataModels_item1_item0_item4_item0_item7>
+  <CTVER>43543230</CTVER>
+  <ID>9</ID>
+  <Name>TaskID</Name>
+  <CreateDate>2016/9/7 14:03:52</CreateDate>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <OrderNo>7</OrderNo>
+  <DisplayName>所属任务</DisplayName>
+  <DataType>2</DataType>
+  <DefaultValue>0</DefaultValue>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item4_item0_item7>
+
+
+<DataModels_item1_item0_item4_item0_item8>
+  <CTVER>43543230</CTVER>
+  <ID>10</ID>
+  <Name>GuidNum</Name>
+  <CreateDate>2016/9/7 14:03:52</CreateDate>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <OrderNo>8</OrderNo>
+  <DataType>1</DataType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item4_item0_item8>
+
+
+<DataModels_item1_item0_item4_item0_item9>
+  <CTVER>43543230</CTVER>
+  <ID>11</ID>
+  <Name>OrderID</Name>
+  <CreateDate>2016/9/7 14:03:52</CreateDate>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <OrderNo>9</OrderNo>
+  <DisplayName>排序</DisplayName>
+  <DataType>2</DataType>
+  <DefaultValue>0</DefaultValue>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item4_item0_item9>
+
+
+<DataModels_item1_item0_item4_item0_item10>
+  <CTVER>43543230</CTVER>
+  <ID>12</ID>
+  <Name>CreateTime</Name>
+  <CreateDate>2016/9/7 14:03:52</CreateDate>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <OrderNo>10</OrderNo>
+  <DataType>4</DataType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item4_item0_item10>
+
+
+<DataModels_item1_item0_item4_item0_item11>
+  <CTVER>43543230</CTVER>
+  <ID>19</ID>
+  <Name>SpiderLabelPlugin</Name>
+  <CreateDate>2016/9/7 14:03:52</CreateDate>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <OrderNo>11</OrderNo>
+  <DisplayName>标签插件</DisplayName>
+  <DataType>1</DataType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item4_item0_item11>
+
+
+<DataModels_item1_item0_item4_item0_item12>
+  <CTVER>43543230</CTVER>
+  <ID>20</ID>
+  <Name>IsDownResource</Name>
+  <CreateDate>2016/9/7 14:03:52</CreateDate>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <OrderNo>12</OrderNo>
+  <DisplayName>是否下载资源</DisplayName>
+  <DataType>2</DataType>
+  <DefaultValue>0</DefaultValue>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item4_item0_item12>
+
+
+<DataModels_item1_item0_item4_item0_item13>
+  <CTVER>43543230</CTVER>
+  <ID>21</ID>
+  <Name>DownResourceExts</Name>
+  <Memo>.jpg;.gif</Memo>
+  <CreateDate>2016/9/7 14:03:52</CreateDate>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <OrderNo>13</OrderNo>
+  <DisplayName>下载资源后缀</DisplayName>
+  <DataType>1</DataType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item4_item0_item13>
+
+
+<DataModels_item1_item0_item4_item0_item14>
+  <CTVER>43543230</CTVER>
+  <ID>412</ID>
+  <Name>IsLoop</Name>
+  <CreateDate>2016/9/7 14:52:10</CreateDate>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <OrderNo>14</OrderNo>
+  <DisplayName>标签内容为循环</DisplayName>
+  <DataType>2</DataType>
+  <DefaultValue>0</DefaultValue>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item4_item0_item14>
+
+
+<DataModels_item1_item0_item4_item0_item15>
+  <CTVER>43543230</CTVER>
+  <ID>427</ID>
+  <Name>TestViewUrl</Name>
+  <CreateDate>2016/9/7 14:59:32</CreateDate>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <OrderNo>15</OrderNo>
+  <DisplayName>测试地址</DisplayName>
+  <DataType>1</DataType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item4_item0_item15>
+
+
+<DataModels_item1_item0_item4_item0_item16>
+  <CTVER>43543230</CTVER>
+  <ID>16</ID>
+  <Name>IsXPath</Name>
+  <CreateDate>2016/9/8 10:52:34</CreateDate>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <OrderNo>16</OrderNo>
+  <DisplayName>是否XPath采集</DisplayName>
+  <DataType>2</DataType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item4_item0_item16>
+
+
+<DataModels_item1_item0_item5>
+  <CTVER>43543230</CTVER>
+  <Name>S_TreeClass</Name>
+  <Caption>任务分类</Caption>
+  <CreateDate>1899/12/30</CreateDate>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <OrderNo>5</OrderNo>
+  <GraphDesc>Left=1165.00
+Top=10.00</GraphDesc>
+</DataModels_item1_item0_item5>
+
+
+<DataModels_item1_item0_item5_item0>
+  <Count>3</Count>
+</DataModels_item1_item0_item5_item0>
+
+
+<DataModels_item1_item0_item5_item0_item1>
+  <CTVER>43543230</CTVER>
+  <ID>1</ID>
+  <Name>ClassID</Name>
+  <CreateDate>2016/9/7 14:03:52</CreateDate>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <OrderNo>1</OrderNo>
+  <DataType>2</DataType>
+  <KeyFieldType>1</KeyFieldType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item5_item0_item1>
+
+
+<DataModels_item1_item0_item5_item0_item2>
+  <CTVER>43543230</CTVER>
+  <ID>2</ID>
+  <Name>TreeClassName</Name>
+  <CreateDate>2016/9/7 14:03:52</CreateDate>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <OrderNo>2</OrderNo>
+  <DataType>1</DataType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item5_item0_item2>
+
+
+<DataModels_item1_item0_item5_item0_item3>
+  <CTVER>43543230</CTVER>
+  <ID>3</ID>
+  <Name>TreeClassReadMe</Name>
+  <CreateDate>2016/9/7 14:03:52</CreateDate>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <OrderNo>3</OrderNo>
+  <DataType>1</DataType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item5_item0_item3>
+
+
+<DataModels_item1_item0_item6>
+  <CTVER>43543230</CTVER>
+  <Name>S_WebPublishModule</Name>
+  <Caption>网站发布模块</Caption>
+  <CreateDate>1899/12/30</CreateDate>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <OrderNo>6</OrderNo>
+  <GraphDesc>Left=1165.00
+Top=110.00</GraphDesc>
+</DataModels_item1_item0_item6>
+
+
+<DataModels_item1_item0_item6_item0>
+  <Count>12</Count>
+</DataModels_item1_item0_item6_item0>
+
+
+<DataModels_item1_item0_item6_item0_item1>
+  <CTVER>43543230</CTVER>
+  <ID>1</ID>
+  <Name>ID</Name>
+  <CreateDate>2016/9/7 14:03:52</CreateDate>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <OrderNo>1</OrderNo>
+  <DataType>2</DataType>
+  <KeyFieldType>1</KeyFieldType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item6_item0_item1>
+
+
+<DataModels_item1_item0_item6_item0_item2>
+  <CTVER>43543230</CTVER>
+  <ID>2</ID>
+  <Name>TaskID</Name>
+  <CreateDate>2016/9/7 14:03:52</CreateDate>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <OrderNo>2</OrderNo>
+  <DataType>2</DataType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item6_item0_item2>
+
+
+<DataModels_item1_item0_item6_item0_item3>
+  <CTVER>43543230</CTVER>
+  <ID>3</ID>
+  <Name>ModuleName</Name>
+  <CreateDate>2016/9/7 14:03:52</CreateDate>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <OrderNo>3</OrderNo>
+  <DataType>1</DataType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item6_item0_item3>
+
+
+<DataModels_item1_item0_item6_item0_item4>
+  <CTVER>43543230</CTVER>
+  <ID>4</ID>
+  <Name>SiteUrl</Name>
+  <CreateDate>2016/9/7 14:03:52</CreateDate>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <OrderNo>4</OrderNo>
+  <DataType>1</DataType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item6_item0_item4>
+
+
+<DataModels_item1_item0_item6_item0_item5>
+  <CTVER>43543230</CTVER>
+  <ID>5</ID>
+  <Name>IsCookiesLogin</Name>
+  <CreateDate>2016/9/7 14:03:52</CreateDate>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <OrderNo>5</OrderNo>
+  <DataType>2</DataType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item6_item0_item5>
+
+
+<DataModels_item1_item0_item6_item0_item6>
+  <CTVER>43543230</CTVER>
+  <ID>6</ID>
+  <Name>CookiesValue</Name>
+  <CreateDate>2016/9/7 14:03:52</CreateDate>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <OrderNo>6</OrderNo>
+  <DataType>1</DataType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item6_item0_item6>
+
+
+<DataModels_item1_item0_item6_item0_item7>
+  <CTVER>43543230</CTVER>
+  <ID>7</ID>
+  <Name>ClassID</Name>
+  <CreateDate>2016/9/7 14:03:52</CreateDate>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <OrderNo>7</OrderNo>
+  <DataType>2</DataType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item6_item0_item7>
+
+
+<DataModels_item1_item0_item6_item0_item8>
+  <CTVER>43543230</CTVER>
+  <ID>8</ID>
+  <Name>ClassName</Name>
+  <CreateDate>2016/9/7 14:03:52</CreateDate>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <OrderNo>8</OrderNo>
+  <DataType>1</DataType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item6_item0_item8>
+
+
+<DataModels_item1_item0_item6_item0_item9>
+  <CTVER>43543230</CTVER>
+  <ID>9</ID>
+  <Name>LoginUserName</Name>
+  <CreateDate>2016/9/7 14:03:52</CreateDate>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <OrderNo>9</OrderNo>
+  <DataType>1</DataType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item6_item0_item9>
+
+
+<DataModels_item1_item0_item6_item0_item10>
+  <CTVER>43543230</CTVER>
+  <ID>10</ID>
+  <Name>LoginUserPwd</Name>
+  <CreateDate>2016/9/7 14:03:52</CreateDate>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <OrderNo>10</OrderNo>
+  <DataType>1</DataType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item6_item0_item10>
+
+
+<DataModels_item1_item0_item6_item0_item11>
+  <CTVER>43543230</CTVER>
+  <ID>11</ID>
+  <Name>ModuleNameFile</Name>
+  <CreateDate>2016/9/7 14:03:52</CreateDate>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <OrderNo>11</OrderNo>
+  <DataType>1</DataType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item6_item0_item11>
+
+
+<DataModels_item1_item0_item6_item0_item12>
+  <CTVER>43543230</CTVER>
+  <ID>12</ID>
+  <Name>CreateTime</Name>
+  <CreateDate>2016/9/7 14:03:52</CreateDate>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <OrderNo>12</OrderNo>
+  <DataType>1</DataType>
+  <Nullable>1</Nullable>
+  <EditorReadOnly>0</EditorReadOnly>
+  <EditorEnabled>0</EditorEnabled>
+</DataModels_item1_item0_item6_item0_item12>
+
+
+</CTOXML>
