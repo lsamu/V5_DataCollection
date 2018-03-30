@@ -1,9 +1,12 @@
 # V5数据采集器(V5_DataCollection)
 
-- 网站:[官方网站](http://www.v5soft.com/)
+- 网站:[官方网站](http://soft.v5soft.com/collection)
 - QQ群:392498279
 - V5数据采集器是一款面向个人及专业用户提供的一款专业的数据采集软件,即适用于简单化配置操作，也适应针对复杂数据采集的能力,所见即可采。 V5数据采集器独有的代理轮询采集机制，可有效的解决网站屏蔽问题，可用于互联网数据动态监控，绝对是您的首选！
 - 合作或者需要定制 请联系QQ 83112223
+
+## 最新软件重构
+- [最新软件重构地址](http://soft.v5soft.com/collection)
 
 ## 源码仓库
 - [github](https://github.com/lsamu/V5_DataCollection)
