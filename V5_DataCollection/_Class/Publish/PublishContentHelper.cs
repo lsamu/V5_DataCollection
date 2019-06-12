@@ -1,12 +1,8 @@
-using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
 using System.Data;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using System.Web;
 using System.Xml.Serialization;
 using V5_DataCollection._Class.DAL;
 using V5_DataCollection._Class.Gather;
@@ -16,7 +12,8 @@ using V5_Utility.Utility;
 using V5_WinLibs.Core;
 using V5_WinLibs.DBUtility;
 
-namespace V5_DataCollection._Class.Publish {
+namespace V5_DataCollection._Class.Publish
+{
 
     public class PublishContentHelper {
 
@@ -28,25 +25,25 @@ namespace V5_DataCollection._Class.Publish {
         public GatherEventHandler.GatherWorkHandler PublishCompalteDelegate;
 
         public void Start() {
-            if (Model.IsWebOnlinePublish1.Value == 1) {
+            if (Model.IsWebOnlinePublish1 != null && Model.IsWebOnlinePublish1.Value == 1) {
                 gatherEv.Message = "开始发布Web数据!";
                 PublishCompalteDelegate?.Invoke(this, gatherEv);
                 StartWeb();
             }
 
-            if (Model.IsSaveLocal2.Value == 1) {
+            if (Model.IsSaveLocal2 != null && Model.IsSaveLocal2.Value == 1) {
                 gatherEv.Message = "开始发布本地数据!";
                 PublishCompalteDelegate?.Invoke(this, gatherEv);
                 StartLocal();
             }
 
-            if (Model.IsSaveDataBase3.Value == 1) {
+            if (Model.IsSaveDataBase3!=null&& Model.IsSaveDataBase3.Value == 1) {
                 gatherEv.Message = "开始保存到数据库!";
                 PublishCompalteDelegate?.Invoke(this, gatherEv);
                 StartDataBase();
             }
 
-            if (Model.IsSaveSQL4.Value == 1) {
+            if (Model.IsSaveSQL4 != null && Model.IsSaveSQL4.Value == 1) {
                 gatherEv.Message = "开始发布自定义网站!";
                 PublishCompalteDelegate?.Invoke(this, gatherEv);
                 StartDiyWeb();
@@ -103,74 +100,32 @@ namespace V5_DataCollection._Class.Publish {
                 DataTable dtData = DbHelper.Query(LocalSQLiteName, "Select * From Content").Tables[0];
                 if (!Directory.Exists(Model.SaveDirectory2))
                     Directory.CreateDirectory(Model.SaveDirectory2);
-                if (Model.SaveFileFormat2.ToLower() == ".html") {
-                    foreach (DataRow dr in dtData.Rows) {
-                        string fileName = dr["标题"].ToString();
-                        str = dr["内容"].ToString();
-                        try {
-                            fileName = fileName.Replace(".", "");
-                            fileName = fileName.Replace(",", "");
-                            fileName = fileName.Replace("、", "");
-                            fileName = fileName.Replace(" ", "");
-                            fileName = fileName.Replace("*", "_");
-                            fileName = fileName.Replace("?", "_");
-                            fileName = fileName.Replace("/", "_");
-                            fileName = fileName.Replace("\\", "_");
-                            fileName = fileName.Replace(":", "_");
-                            fileName = fileName.Replace("|", "_");
-                            fileName += ".html";
-                            using (StreamWriter sw = new StreamWriter(Model.SaveDirectory2 + "\\" + fileName, false, Encoding.UTF8)) {
-                                sw.Write(str);
-                                sw.Flush();
-                                sw.Close();
-                            }
+             var outPut= PluginUtility.ListIOutputFormatPlugin.Where(x => x.Format == Model.SaveFileFormat2);
+
+                if (outPut != null)
+                {
+                    foreach (var item in outPut)
+                    {
+                       var r= item.RunSave(dtData,Model);
+                        if (r.IsOk)
+                        {
+                            gatherEv.Message = "保存成功!" + r.Message;
+                            PublishCompalteDelegate?.Invoke(this, gatherEv);
                         }
-                        catch {
-                            continue;
+                        else
+                        {
+                            gatherEv.Message = "错误!" + r.Message;
+                            PublishCompalteDelegate?.Invoke(this, gatherEv);
                         }
                     }
-                }
-                else if (Model.SaveFileFormat2.ToLower() == ".txt") {
-                    foreach (DataRow dr in dtData.Rows) {
-                        foreach (ModelTaskLabel mTaskLabel in Model.ListTaskLabel) {
-                            str += mTaskLabel.LabelName + ":" + dr[mTaskLabel.LabelName] + "\r\n";
-                        }
-                        str += "\r\n\r\n";
-                    }
-                    using (StreamWriter sw = new StreamWriter(Model.SaveDirectory2 + "\\采集结果文本保存.txt", false, Encoding.UTF8)) {
-                        sw.Write(str);
-                        sw.Flush();
-                        sw.Close();
-                    }
-                }
-                else if (Model.SaveFileFormat2.ToLower() == ".sql") {
-                    try {
-                        string strTemplateContent = File.ReadAllText(Model.SaveHtmlTemplate2, Encoding.UTF8);
-                        StringBuilder sbContent = new StringBuilder();
-                        foreach (DataRow dr in dtData.Rows) {
-                            string sql = strTemplateContent;
-                            foreach (ModelTaskLabel mTaskLabel in Model.ListTaskLabel) {
-                                string content = dr[mTaskLabel.LabelName].ToString().Replace("'", "''");
-                                sql = sql.Replace("[" + mTaskLabel.LabelName + "]", content);
-                            }
-                            sbContent.AppendLine(sql);
-                        }
-                        using (StreamWriter sw = new StreamWriter(Model.SaveDirectory2 + "\\sql.sql", false, Encoding.UTF8)) {
-                            sw.Write(sbContent.ToString());
-                            sw.Flush();
-                            sw.Close();
-                        }
-                    }
-                    catch (Exception ex) {
-                        gatherEv.Message = "错误!" + ex.Message;
-                        PublishCompalteDelegate?.Invoke(this, gatherEv);
-                    }
-                }
+                }               
             }
             catch (Exception ex) {
                 Log4Helper.Write(LogLevel.Error, ex);
             }
         }
+
+     
         #endregion
 
         #region 保存到数据库

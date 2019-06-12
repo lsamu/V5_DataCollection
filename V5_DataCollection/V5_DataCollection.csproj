@@ -75,6 +75,9 @@
       <HintPath>..\packages\Common.Logging.Core.3.0.0\lib\net40\Common.Logging.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="DocumentFormat.OpenXml">
+      <HintPath>..\..\Paper20190214\Paper\packages\DocumentFormat.OpenXml.2.9.0\lib\net46\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
     <Reference Include="FastColoredTextBox, Version=2.7.2.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\V5_Libs\FastColoredTextBox.dll</HintPath>
@@ -180,6 +183,7 @@
       <HintPath>..\packages\DockPanelSuite.2.10.0\lib\net40\WeifenLuo.WinFormsUI.Docking.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="WindowsBase" />
     <Reference Include="XmlDatabase.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=7169c13cb8ad33c1, processorArchitecture=MSIL">
       <HintPath>..\packages\XMLDatabase.2.1\lib\net40\XmlDatabase.Core.dll</HintPath>
       <Private>True</Private>
@@ -259,6 +263,10 @@
     <Compile Include="Forms\Tools\frmUserTool.Designer.cs">
       <DependentUpon>frmUserTool.cs</DependentUpon>
     </Compile>
+    <Compile Include="Plugins\SaveContent\OutPutHtml.cs" />
+    <Compile Include="Plugins\SaveContent\OutPutTxt.cs" />
+    <Compile Include="Plugins\SaveContent\OutPutXlsx.cs" />
+    <Compile Include="Plugins\SaveContent\OutPutSql.cs" />
     <Compile Include="_Class\BaseConfig.cs" />
     <Compile Include="_Class\Common\AppNameHelper.cs" />
     <Compile Include="_Class\Common\QueueImgHelper.cs" />
@@ -385,10 +393,6 @@
     <Compile Include="_Class\Gather\GatherEventHandler.cs" />
     <Compile Include="_Class\Gather\GatherEvents.cs" />
     <Compile Include="_Class\Gather\ModelLinkUrl.cs" />
-    <Compile Include="_Class\Model\ModelTask.cs" />
-    <Compile Include="_Class\Model\ModelTaskClass.cs" />
-    <Compile Include="_Class\Model\ModelTaskLabel.cs" />
-    <Compile Include="_Class\Model\ModelWebPublishModule.cs" />
     <Compile Include="_Class\PluginUtility.cs" />
     <Compile Include="_Class\Task\TaskStatus.cs" />
     <Compile Include="_Class\TestHelper.cs" />
@@ -531,6 +535,10 @@
     <ProjectReference Include="..\V5_DataPlugins\V5_Plugins.csproj">
       <Project>{30b8191a-1162-4f24-8549-9c16cb555cff}</Project>
       <Name>V5_Plugins</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\V5_Model\V5_Model.csproj">
+      <Project>{5ff151c9-42a3-426b-bda4-65624dc25eaa}</Project>
+      <Name>V5_Model</Name>
     </ProjectReference>
     <ProjectReference Include="..\V5_WinLibs\V5_WinLibs.csproj">
       <Project>{db2ccfe4-81da-4941-8fba-bf8692300326}</Project>

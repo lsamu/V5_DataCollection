@@ -27,6 +27,7 @@ namespace V5_DataCollection._Class.Gather {
                     Urls.Add(Url);
                     return Urls;
                 }
+                /*
                 while (Regex.IsMatch(Url, "{.*}")) {
                     string strMatch = "(?<={)[^}]*(?=})";
                     Match s = Regex.Match(Url, strMatch, RegexOptions.IgnoreCase);
@@ -37,6 +38,41 @@ namespace V5_DataCollection._Class.Gather {
                         Urls.Add(temp.Replace("{" + UrlPara + "}", str));
                     }
                     Url = Url.Replace("{" + UrlPara + "}", "");
+                }*/
+                if (Regex.IsMatch(Url, "{.*}"))
+                {
+                    var match = Regex.Matches(Url, "{.*}");
+                    var count = match.Count;
+
+                    List<string> url1 = new List<string>();
+                    url1.Add(Url);
+                    // for (int i = 0; i < count; i++)
+                    // {                        
+                    for (int j = 0; j < url1.Count;)
+                    {
+                        if (!Regex.IsMatch(url1[j], "{.*}"))
+                        {
+                            Urls.Add(url1[j]);
+                            url1.RemoveAt(j);
+                        }
+                        else
+                        {
+                            string strMatch = "(?<={)[^}]*(?=})";
+                            Match s = Regex.Match(url1[j], strMatch, RegexOptions.IgnoreCase);
+                            string UrlPara = s.Groups[0].Value;
+                            List<string> g_Url = getListUrl(UrlPara, url1[j]);
+                            foreach (string str in g_Url)
+                            {
+                                string temp = url1[j];
+                                temp = temp.Remove(s.Index - 1, s.Length + 2);
+                                url1.Add(temp.Insert(s.Index - 1, str));
+                            }
+                            j++;
+                        }
+                    }
+                    url1.Clear();
+                    // }
+                    // Urls.AddRange(url1);
                 }
             }
             catch (Exception) {

@@ -71,7 +71,8 @@ namespace V5_DataCollection._Class.Gather {
         /// </summary>
         /// <param name="viewUrl"></param>
         /// <param name="Test_LabelList"></param>
-        public void SpiderContent(string viewUrl, List<ModelTaskLabel> Test_LabelList) {
+        public void SpiderContent(string viewUrl, List<ModelTaskLabel> Test_LabelList)
+        {
 
             string SQL = string.Empty, cutContent = string.Empty;
 
@@ -84,48 +85,71 @@ namespace V5_DataCollection._Class.Gather {
             StringBuilder sb3 = new StringBuilder();
 
             string tempContent = pageContent;
-
-            foreach (ModelTaskLabel itemTaskLabel in Model.ListTaskLabel) {
+            bool isSkip = false;
+            string labelName = "";
+            foreach (ModelTaskLabel itemTaskLabel in Model.ListTaskLabel)
+            {
+                labelName = itemTaskLabel.LabelName;
                 var CutContent = GetLabelContent(Model.TaskName, Model.CollectionContentStepTime.Value, Model.TestViewUrl, itemTaskLabel, pageContent, false);
-                #region 替换特殊
-                sb1.Append("" + itemTaskLabel.LabelName.Replace("'", "''") + ",");
-                sb2.Append("'" + CutContent.Replace("'", "''") + "',");
-                if (CutContent.Replace("'", "''").Length < 100) {
-                    sb3.Append(" " + itemTaskLabel.LabelName.Replace("'", "''") + "='" + CutContent.Replace("'", "''") + "' and");
+                var nohtml = HtmlHelper.Instance.ParseTags(CutContent);
+                if (string.IsNullOrEmpty(nohtml) && itemTaskLabel.IsSkipIfValueIsEmpty == 1)
+                {
+                    isSkip = true;
+                    break;
                 }
-                #endregion
+                if (!isSkip)
+                {
+                    #region 替换特殊
+                    sb1.Append("" + itemTaskLabel.LabelName.Replace("'", "''") + ",");
+                    sb2.Append("'" + CutContent.Replace("'", "''") + "',");
+                    if (CutContent.Replace("'", "''").Length < 100)
+                    {
+                        sb3.Append(" " + itemTaskLabel.LabelName.Replace("'", "''") + "='" + CutContent.Replace("'", "''") + "' and");
+                    }
+                    #endregion
+                }
             }
 
-            try {
+            if (!isSkip)
+            {
+                try
+                {
 
-                //是否有采集列表 然后在更新或者插入
+                    //是否有采集列表 然后在更新或者插入
 
-                #region 保存数据库
-                string LocalSQLiteName = "Data\\Collection\\" + Model.TaskName + "\\SpiderResult.db";
-                string sql = " Select Count(1) From Content Where HrefSource='" + viewUrl + "' ";
-                object o = DbHelper.ExecuteScalar(LocalSQLiteName, sql);
-                if (Convert.ToInt32("0" + o) == 0) {
+                    #region 保存数据库
+                    string LocalSQLiteName = "Data\\Collection\\" + Model.TaskName + "\\SpiderResult.db";
+                    string sql = " Select Count(1) From Content Where HrefSource='" + viewUrl + "' ";
+                    object o = DbHelper.ExecuteScalar(LocalSQLiteName, sql);
+                    if (Convert.ToInt32("0" + o) == 0)
+                    {
 
-                    strSql.Append("insert into Content(HrefSource,");
-                    strSql.Append(sb1.ToString().Remove(sb1.Length - 1));
-                    strSql.Append(")");
-                    strSql.Append(" values ('" + viewUrl + "',");
-                    strSql.Append(sb2.ToString().Remove(sb2.Length - 1));
-                    strSql.Append(")");
+                        strSql.Append("insert into Content(HrefSource,");
+                        strSql.Append(sb1.ToString().Remove(sb1.Length - 1));
+                        strSql.Append(")");
+                        strSql.Append(" values ('" + viewUrl + "',");
+                        strSql.Append(sb2.ToString().Remove(sb2.Length - 1));
+                        strSql.Append(")");
 
-                    DbHelper.Execute(LocalSQLiteName, strSql.ToString());
+                        DbHelper.Execute(LocalSQLiteName, strSql.ToString());
+                    }
+                    title = title.Replace('\\', ' ').Replace('/', ' ').Split(new char[] { '_' })[0].Split(new char[] { '-' })[0];
+                    #endregion
+
+                    #region 更新采集列表为 已采集
+
+                    #endregion
+
+                    OutViewUrlContentHandler?.Invoke(viewUrl + "=" + title);
                 }
-                title = title.Replace('\\', ' ').Replace('/', ' ').Split(new char[] { '_' })[0].Split(new char[] { '-' })[0];
-                #endregion
-
-                #region 更新采集列表为 已采集
-
-                #endregion
-
-                OutViewUrlContentHandler?.Invoke(viewUrl + "=" + title);
+                catch (Exception ex)
+                {
+                    OutViewUrlContentHandler?.Invoke(viewUrl + "=" + title + "=" + ex.Message);
+                }
             }
-            catch (Exception ex) {
-                OutViewUrlContentHandler?.Invoke(viewUrl + "=" + title + "=" + ex.Message);
+            else
+            {
+                OutViewUrlContentHandler?.Invoke(viewUrl + "=" + title+"标签："+labelName+"值为空，已跳过");
             }
         }
 
@@ -154,23 +178,35 @@ namespace V5_DataCollection._Class.Gather {
 
             #region 下载资源
             var imgTag = ImageDownHelper.GetImgTag(CutContent);
-            if (itemTaskLebel.IsDownResource == 1) {
+            if (itemTaskLebel.IsDownResource!=null&& itemTaskLebel.IsDownResource.Value == 1) {
                 string[] imgExtArr = itemTaskLebel.DownResourceExts.Split(new string[] { ";" }, StringSplitOptions.RemoveEmptyEntries);
-                var downImgPath = AppDomain.CurrentDomain.BaseDirectory + "Data\\Collection\\" + taskName + "\\Images\\";
+                var downImgPath = Model.ResourceSavePath;// itemTaskLebel.ResourceSavePath; //AppDomain.CurrentDomain.BaseDirectory + "Data\\Collection\\" + taskName + "\\Images\\";
+                if (string.IsNullOrEmpty(downImgPath))
+                {
+                    downImgPath= AppDomain.CurrentDomain.BaseDirectory + "Data\\Collection\\" + taskName + "\\Images\\";
+                }
                 int ii = 1;
                 foreach (var img in imgTag) {
                     var remoteImg = CollectionHelper.Instance.FormatUrl(remoteViewUrl, img);
-                    var newImg = DateTime.Now.ToString("yyyyMMddHHmmssffffff") + "_" + ii + ".jpg";
-                    if (!string.IsNullOrEmpty(itemTaskLebel.DownResourceExts)) {
-                        var imgExt = remoteImg.Substring(remoteImg.LastIndexOf("."));
-                        if (imgExtArr.SingleOrDefault(x => x.ToLower() == imgExt.ToLower()) != imgExt.ToLower()) {
-                            continue;
+                    var imgExt = remoteImg.Substring(remoteImg.LastIndexOf("."));
+                    var newImg = DateTime.Now.ToString("yyyyMMddHHmmssffffff") + "_" + ii + imgExt;
+                    if (string.IsNullOrEmpty(itemTaskLebel.DownResourceExts)||imgExtArr.Any(x=>x.ToLower()==imgExt.ToLower())) {
+
+                        // if (imgExtArr.SingleOrDefault(x => x.ToLower() == imgExt.ToLower()) != imgExt.ToLower()) {
+                        //    continue;
+                        //}
+                        CutContent = CutContent.Replace(img, downImgPath + newImg);
+
+                        if (!isTest)
+                        {
+                            QueueImgHelper.AddImg(Model.ID, downImgPath + newImg, remoteImg, collectionContentStepTime);
+                        }
+                        else
+                        {
+                            OutViewUrlContentHandler?.Invoke($"允许下载资源后辍：{itemTaskLebel.DownResourceExts}，本资源后辍：{imgExt}\r\n");
                         }
                     }
-                    CutContent = CutContent.Replace(img, downImgPath + newImg);
-                    if (!isTest) {
-                        QueueImgHelper.AddImg(Model.ID, downImgPath + newImg, remoteImg, collectionContentStepTime);
-                    }
+                
                     ii++;
                 }
             }
@@ -211,6 +247,11 @@ namespace V5_DataCollection._Class.Gather {
                     else if (str == "a") {
                         CutContent = CollectionHelper.Instance.ScriptHtml(CutContent, "a", 3);
                     }
+                    else 
+                    {
+                        CutContent = CollectionHelper.Instance.ScriptHtml(CutContent, str, 2);
+                    }
+                    
                 }
             }
             #endregion
@@ -219,11 +260,13 @@ namespace V5_DataCollection._Class.Gather {
             if (!string.IsNullOrEmpty(itemTaskLebel.LabelRemove)) {
                 foreach (string str in itemTaskLebel.LabelRemove.Split(new string[] { "$$$$" }, StringSplitOptions.RemoveEmptyEntries)) {
                     string[] ListStr = str.Split(new string[] { "||" }, StringSplitOptions.RemoveEmptyEntries);
-                    if (ListStr[1] == "1") {
-                        CutContent = CollectionHelper.RemoveHtml(CutContent, ListStr[0]);
+                    if (ListStr[1] == "2") {
+                        // CutContent = CollectionHelper.RemoveHtml(CutContent, ListStr[0]);
+                        CutContent = CollectionHelper.Instance.ScriptHtml(CutContent, ListStr[0], 2);
                     }
                     else {
-                        CutContent = CutContent.Replace(ListStr[0], "");
+                        // CutContent = CutContent.Replace(ListStr[0], "");
+                        CutContent = CollectionHelper.Instance.ScriptHtml(CutContent, ListStr[0], 3);
                     }
                 }
             }
@@ -233,6 +276,11 @@ namespace V5_DataCollection._Class.Gather {
             if (!string.IsNullOrEmpty(itemTaskLebel.LabelReplace)) {
                 foreach (string str in itemTaskLebel.LabelReplace.Split(new string[] { "$$$$" }, StringSplitOptions.RemoveEmptyEntries)) {
                     string[] ListStr = str.Split(new string[] { "||" }, StringSplitOptions.RemoveEmptyEntries);
+                    if (ListStr.Length == 1)
+                    {
+                        CutContent = CutContent.Replace(ListStr[0], "");
+                    }
+                    else
                     CutContent = CutContent.Replace(ListStr[0], ListStr[1]);
                 }
             }

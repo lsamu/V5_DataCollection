@@ -1,14 +1,9 @@
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using V5_DataCollection._Class.DAL;
 
-namespace V5_DataCollection.Forms.Task.TaskData {
+namespace V5_DataCollection.Forms.Task.TaskData
+{
     public partial class frmTaskDataEdit : BaseForm {
 
         public delegate void OutDataEdit(DataGridViewCell cell, string result);
@@ -36,7 +31,7 @@ namespace V5_DataCollection.Forms.Task.TaskData {
 
                 object oo = DALContentHelper.GetContent(this.TaskName, this.Id, this.HeaderText);
 
-                if (oo.ToString().IndexOf("/>") == -1) {
+                if (oo.ToString().IndexOf("</") == -1) {
                     isHtml = false;
                 }
 

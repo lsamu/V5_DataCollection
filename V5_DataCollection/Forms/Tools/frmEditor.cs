@@ -1,15 +1,9 @@
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
 using V5_DataCollection._Class.PythonExt;
 
-namespace V5_DataCollection.Forms.Tools {
+namespace V5_DataCollection.Forms.Tools
+{
     public partial class frmEditor : BaseForm {
 
         public string PythonFilePath { get; set; } = string.Empty;

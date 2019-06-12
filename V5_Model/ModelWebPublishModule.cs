@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 
 namespace V5_Model {
+    [Serializable]
     /// <summary>
     /// 网站发布模块实体类
     /// </summary>

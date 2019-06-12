@@ -26,9 +26,9 @@ namespace V5_DataCollection._Class.DAL {
         public int Add(ModelTaskLabel model) {
             StringBuilder strSql = new StringBuilder();
             strSql.Append("insert into [S_TaskLabel] (");
-            strSql.Append("LabelName,IsLoop,TestViewUrl,LabelNameCutRegex,LabelHtmlRemove,LabelRemove,LabelReplace,TaskID,GuidNum,OrderID,CreateTime,SpiderLabelPlugin,IsDownResource,DownResourceExts)");
+            strSql.Append("LabelName,IsLoop,TestViewUrl,LabelNameCutRegex,LabelHtmlRemove,LabelRemove,LabelReplace,TaskID,GuidNum,OrderID,CreateTime,SpiderLabelPlugin,IsDownResource,DownResourceExts,IsSkipIfValueIsEmpty)");
             strSql.Append(" values (");
-            strSql.Append("@LabelName,@IsLoop,@TestViewUrl,@LabelNameCutRegex,@LabelHtmlRemove,@LabelRemove,@LabelReplace,@TaskID,@GuidNum,@OrderID,@CreateTime,@SpiderLabelPlugin,@IsDownResource,@DownResourceExts)");
+            strSql.Append("@LabelName,@IsLoop,@TestViewUrl,@LabelNameCutRegex,@LabelHtmlRemove,@LabelRemove,@LabelReplace,@TaskID,@GuidNum,@OrderID,@CreateTime,@SpiderLabelPlugin,@IsDownResource,@DownResourceExts,@IsSkipIfValueIsEmpty)");
             object obj = DbHelper.Execute(CommonHelper.SQLiteConnectionString, strSql.ToString(), model);
             if (obj == null) {
                 return 0;
@@ -57,7 +57,8 @@ namespace V5_DataCollection._Class.DAL {
             strSql.Append("CreateTime=@CreateTime,");
             strSql.Append("SpiderLabelPlugin=@SpiderLabelPlugin,");
             strSql.Append("IsDownResource=@IsDownResource,");
-            strSql.Append("DownResourceExts=@DownResourceExts");
+            strSql.Append("DownResourceExts=@DownResourceExts,");
+            strSql.Append("IsSkipIfValueIsEmpty=@IsSkipIfValueIsEmpty");
             strSql.Append(" where ID=@ID ");
             int rowsAffected = DbHelper.Execute(CommonHelper.SQLiteConnectionString, strSql.ToString(), model);
             if (rowsAffected > 0) {
@@ -223,7 +224,8 @@ namespace V5_DataCollection._Class.DAL {
                       islinkurl,  
                       ispager,  
                       labelvaluelinkurlregex,  
-                      labelvaluepagerregex
+                      labelvaluepagerregex,                      
+IsSkipIfValueIsEmpty
                     FROM 
                       s_tasklabel where id={1};
             ", maxID, ID);

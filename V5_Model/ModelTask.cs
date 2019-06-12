@@ -1,10 +1,8 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using V5_DataCollection.Forms.Publish;
 
-namespace V5_Model {
+namespace V5_Model
+{
     /// <summary>
     /// 采集任务实体类
     /// </summary>
@@ -405,6 +403,7 @@ namespace V5_Model {
             set { _handcollectionurlregex = value; }
             get { return _handcollectionurlregex; }
         }
+        public string ResourceSavePath { get; set; }
         #endregion Model
 
     }

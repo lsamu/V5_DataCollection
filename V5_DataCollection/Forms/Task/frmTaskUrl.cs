@@ -1,14 +1,9 @@
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
 
-namespace V5_DataCollection.Forms.Task {
+namespace V5_DataCollection.Forms.Task
+{
     public partial class frmTaskUrl : BaseForm {
         public TaskEventHandler.AddLinkUrl AddUrl;
         private TaskEvents.AddLinkUrlEvents ev = new TaskEvents.AddLinkUrlEvents();

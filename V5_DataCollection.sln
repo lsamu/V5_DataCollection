@@ -22,6 +22,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Readme", "Readme", "{726815
 		README.md = README.md
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "V5_Model", "V5_Model\V5_Model.csproj", "{5FF151C9-42A3-426B-BDA4-65624DC25EAA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestPlugin", "TestPlugin\TestPlugin.csproj", "{23698B61-445B-47F3-A497-FF1956D7B832}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -56,6 +60,14 @@ Global
 		{94902BDD-1E20-436B-8462-1BCB35E4D293}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{94902BDD-1E20-436B-8462-1BCB35E4D293}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{94902BDD-1E20-436B-8462-1BCB35E4D293}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5FF151C9-42A3-426B-BDA4-65624DC25EAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FF151C9-42A3-426B-BDA4-65624DC25EAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FF151C9-42A3-426B-BDA4-65624DC25EAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FF151C9-42A3-426B-BDA4-65624DC25EAA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23698B61-445B-47F3-A497-FF1956D7B832}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23698B61-445B-47F3-A497-FF1956D7B832}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23698B61-445B-47F3-A497-FF1956D7B832}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23698B61-445B-47F3-A497-FF1956D7B832}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

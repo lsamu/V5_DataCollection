@@ -40,13 +40,12 @@ namespace V5_DataCollection.Forms.Task {
             this.ToolStripMenuItem_ClearTaskAllData = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItem_ReCreateTable = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItem_ViewTaskData = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmExportData = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
             this.计划任务ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.导出采集规则ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmRefreshTaskList = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridView_TaskList = new V5_WinControls.V5DataGridView(this.components);
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Col_ClassId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -55,6 +54,11 @@ namespace V5_DataCollection.Forms.Task {
             this.Col_TaskId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProgressBar = new V5_WinControls.DataGrid.DataGridViewProgressBarColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tsmOpenTaskDir = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmTaskOpenResourceDir = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip_TaskList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_TaskList)).BeginInit();
             this.SuspendLayout();
@@ -74,11 +78,15 @@ namespace V5_DataCollection.Forms.Task {
             this.ToolStripMenuItem_ClearTaskAllData,
             this.ToolStripMenuItem_ReCreateTable,
             this.ToolStripMenuItem_ViewTaskData,
+            this.tsmExportData,
+            this.tsmOpenTaskDir,
+            this.tsmTaskOpenResourceDir,
             this.toolStripMenuItem3,
             this.计划任务ToolStripMenuItem,
-            this.导出采集规则ToolStripMenuItem});
+            this.导出采集规则ToolStripMenuItem,
+            this.tsmRefreshTaskList});
             this.contextMenuStrip_TaskList.Name = "contextMenuStrip_TaskList";
-            this.contextMenuStrip_TaskList.Size = new System.Drawing.Size(185, 286);
+            this.contextMenuStrip_TaskList.Size = new System.Drawing.Size(185, 396);
             // 
             // ToolStripMenuItem_TaskNew
             // 
@@ -160,6 +168,12 @@ namespace V5_DataCollection.Forms.Task {
             this.ToolStripMenuItem_ViewTaskData.Text = "查看此任务数据";
             this.ToolStripMenuItem_ViewTaskData.Click += new System.EventHandler(this.ToolStripMenuItem_ViewTaskData_Click);
             // 
+            // tsmExportData
+            // 
+            this.tsmExportData.Name = "tsmExportData";
+            this.tsmExportData.Size = new System.Drawing.Size(184, 22);
+            this.tsmExportData.Text = "导出数据";
+            // 
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
@@ -178,6 +192,13 @@ namespace V5_DataCollection.Forms.Task {
             this.导出采集规则ToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
             this.导出采集规则ToolStripMenuItem.Text = "导出采集规则";
             this.导出采集规则ToolStripMenuItem.Click += new System.EventHandler(this.导出采集规则ToolStripMenuItem_Click);
+            // 
+            // tsmRefreshTaskList
+            // 
+            this.tsmRefreshTaskList.Name = "tsmRefreshTaskList";
+            this.tsmRefreshTaskList.Size = new System.Drawing.Size(184, 22);
+            this.tsmRefreshTaskList.Text = "刷新任务列表";
+            this.tsmRefreshTaskList.Click += new System.EventHandler(this.tsmRefreshTaskList_Click);
             // 
             // dataGridView_TaskList
             // 
@@ -209,23 +230,6 @@ namespace V5_DataCollection.Forms.Task {
             this.dataGridView_TaskList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_TaskList_CellDoubleClick);
             this.dataGridView_TaskList.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView_TaskList_CellFormatting);
             this.dataGridView_TaskList.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView_TaskList_CellMouseDown);
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "ID";
-            this.dataGridViewTextBoxColumn1.HeaderText = "ID";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.HeaderText = "状态";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "TaskName";
-            this.dataGridViewTextBoxColumn3.HeaderText = "任务名称";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             // 
             // ID
             // 
@@ -286,6 +290,37 @@ namespace V5_DataCollection.Forms.Task {
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
             // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "ID";
+            this.dataGridViewTextBoxColumn1.HeaderText = "ID";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.HeaderText = "状态";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "TaskName";
+            this.dataGridViewTextBoxColumn3.HeaderText = "任务名称";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            // 
+            // tsmOpenTaskDir
+            // 
+            this.tsmOpenTaskDir.Name = "tsmOpenTaskDir";
+            this.tsmOpenTaskDir.Size = new System.Drawing.Size(184, 22);
+            this.tsmOpenTaskDir.Text = "打开任务目录";
+            this.tsmOpenTaskDir.Click += new System.EventHandler(this.tsmOpenTaskDir_Click);
+            // 
+            // tsmTaskOpenResourceDir
+            // 
+            this.tsmTaskOpenResourceDir.Name = "tsmTaskOpenResourceDir";
+            this.tsmTaskOpenResourceDir.Size = new System.Drawing.Size(184, 22);
+            this.tsmTaskOpenResourceDir.Text = "打开下载资源目录";
+            this.tsmTaskOpenResourceDir.Click += new System.EventHandler(this.tsmTaskOpenResourceDir_Click);
+            // 
             // FrmTaskMain
             // 
             this.AllowEndUserDocking = false;
@@ -340,5 +375,9 @@ namespace V5_DataCollection.Forms.Task {
         private System.Windows.Forms.DataGridViewTextBoxColumn Col_TaskId;
         private DataGridViewProgressBarColumn ProgressBar;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.ToolStripMenuItem tsmRefreshTaskList;
+        private System.Windows.Forms.ToolStripMenuItem tsmExportData;
+        private System.Windows.Forms.ToolStripMenuItem tsmOpenTaskDir;
+        private System.Windows.Forms.ToolStripMenuItem tsmTaskOpenResourceDir;
     }
 }

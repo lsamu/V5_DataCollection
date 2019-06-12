@@ -192,7 +192,8 @@ namespace V5_WinLibs.Core {
             }
             int pathLevel = 0;
             string hostName;
-            theUrl = theUrl.ToLower();
+            //20190526 如果转小写将导致某些区分大小写的网址无法访问
+            //theUrl = theUrl.ToLower();
             hostName = BaseUrl.Substring(0, BaseUrl.IndexOf("/", 8));
             BaseUrl = BaseUrl.Substring(0, BaseUrl.LastIndexOf("/"));
             if (theUrl.StartsWith("./")) {
@@ -212,7 +213,10 @@ namespace V5_WinLibs.Core {
                 }
                 theUrl = BaseUrl + "/" + theUrl;
             }
-            if (!theUrl.StartsWith("http://") && !theUrl.StartsWith("https://")) {
+            //20190526 纠正上述问题
+            var lowerUrl = theUrl.ToLower();
+           
+            if (!lowerUrl.StartsWith("http://") && !lowerUrl.StartsWith("https://")) {
                 theUrl = BaseUrl + "/" + theUrl;
             }
             return theUrl;

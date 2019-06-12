@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 
 namespace V5_Model {
+    [Serializable]
     /// <summary>
     /// 采集任务标签实体类
     /// </summary>
@@ -11,6 +12,7 @@ namespace V5_Model {
         #region Model
         public string TestViewUrl { get; set; } = string.Empty;
         public int IsLoop { get; set; } = 0;
+        public int IsSkipIfValueIsEmpty { get; set; } = 0;
         private int _id = 0;
         private string _labelname = string.Empty;
         private string _labelnamecutregex = string.Empty;
@@ -115,6 +117,7 @@ namespace V5_Model {
             set { _downresourceexts = value; }
             get { return _downresourceexts; }
         }
+        
         #endregion Model
     }
 }

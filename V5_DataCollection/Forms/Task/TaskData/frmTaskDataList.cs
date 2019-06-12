@@ -47,7 +47,7 @@ namespace V5_DataCollection.Forms.Task.TaskData {
                 this.Pager.bindingSource.DataSource = dt;
                 this.Pager.bindingNavigator.BindingSource = Pager.bindingSource;
 
-                this.dataGridView_DataList.DataSource = this.Pager.bindingSource;
+                this.dataGridView_DataList.DataSource = dt;
 
                 return oCount;
             }

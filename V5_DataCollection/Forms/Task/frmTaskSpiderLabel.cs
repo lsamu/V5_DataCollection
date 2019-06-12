@@ -53,7 +53,6 @@ namespace V5_DataCollection.Forms.Task {
             model.LabelNameCutRegex = this.txtLabelNameCutRegex.Text.Replace("'", "''");
             model.LabelRemove = string.Empty;
             model.LabelReplace = string.Empty;
-
             #region Html过滤
             model.LabelHtmlRemove = string.Empty;
             if (this.chkAllHtml.Checked)
@@ -66,6 +65,20 @@ namespace V5_DataCollection.Forms.Task {
                 model.LabelHtmlRemove += "a||||";
             if (this.chkScript.Checked)
                 model.LabelHtmlRemove += "script||||";
+            if (cbu.Checked)
+                model.LabelHtmlRemove += "u||||";
+            if (cbi.Checked)
+                model.LabelHtmlRemove += "i||||";
+            if (cbcode.Checked)
+                model.LabelHtmlRemove += "code||||";
+            if (cbfont.Checked)
+                model.LabelHtmlRemove += "font||||";
+            if (cbp.Checked)
+                model.LabelHtmlRemove += "p||||";
+            if (cbb.Checked)
+                model.LabelHtmlRemove += "b||||";
+            if (cbaddress.Checked)
+                model.LabelHtmlRemove += "address||||";
             if (model.LabelHtmlRemove.Trim() != "")
                 model.LabelHtmlRemove = model.LabelHtmlRemove.Remove(model.LabelHtmlRemove.Length - 4);
             #endregion
@@ -81,7 +94,7 @@ namespace V5_DataCollection.Forms.Task {
 
             #region 内容替换
             foreach (ListViewItem item in this.listViewContentReplace.Items) {
-                model.LabelReplace += item.SubItems[0].Text + "||" + item.SubItems[1].Text + "$$$$";
+                model.LabelReplace += item.SubItems[0].Text + "||" + item.SubItems[1].Text??"" + "$$$$";
             }
             if (model.LabelReplace.Trim() != "") {
                 model.LabelReplace = model.LabelReplace.Remove(model.LabelReplace.Length - 4);
@@ -89,10 +102,11 @@ namespace V5_DataCollection.Forms.Task {
             #endregion
 
             model.IsLoop = this.chkLabelIsLoop.Checked ? 1 : 0;
+            model.IsSkipIfValueIsEmpty = chValueIfIsEmpty.Checked ? 1 : 0;
             model.SpiderLabelPlugin = this.cmbSpiderPlugin.Text;
             model.IsDownResource = this.chkDownResource.Checked ? 1 : 0;
             model.DownResourceExts = this.txtDownResourceExt.Text;
-
+           
             if (ID > 0) {
                 model.ID = ID;
                 dal.Update(model);
@@ -134,6 +148,7 @@ namespace V5_DataCollection.Forms.Task {
             this.txtLabelNameCutRegex.Text = model.LabelNameCutRegex;
             this.chkScript.Checked = false;
             this.chkhref.Checked = false;
+           
             if (!string.IsNullOrEmpty(model.LabelHtmlRemove)) {
                 string[] arr = model.LabelHtmlRemove.Split(new string[] { "||||" }, StringSplitOptions.RemoveEmptyEntries);
                 foreach (string str in arr) {
@@ -152,6 +167,35 @@ namespace V5_DataCollection.Forms.Task {
                     else if (str == "script") {
                         this.chkScript.Checked = true;
                     }
+                    else if (str == "u")
+                    {
+                        this.cbu.Checked = true;
+                    }
+                    else if (str == "i")
+                    {
+                        this.cbi.Checked = true;
+                    }
+                    else if (str == "p")
+                    {
+                        this.cbp.Checked = true;
+                    }
+                    else if (str == "code")
+                    {
+                        this.cbcode.Checked = true;
+                    }
+                    else if (str == "address")
+                    {
+                        this.cbaddress.Checked = true;
+                    }
+                    else if (str == "font")
+                    {
+                        this.cbfont.Checked = true;
+                    }
+                    else if (str == "b")
+                    {
+                        this.cbb.Checked = true;
+                    }
+
                 }
             }
 
@@ -171,16 +215,22 @@ namespace V5_DataCollection.Forms.Task {
                 foreach (string str in model.LabelReplace.Split(new string[] { "$$$$" }, StringSplitOptions.RemoveEmptyEntries)) {
                     string[] aa = str.Split(new string[] { "||" }, StringSplitOptions.None);
                     ListViewItem lvi = new ListViewItem(aa[0]);
-                    lvi.SubItems.Add(aa[1]);
+                    if (aa.Length > 1)
+                        lvi.SubItems.Add(aa[1]);
+                    else
+                    {
+                        lvi.SubItems.Add("");
+                    }
                     this.listViewContentReplace.Items.Add(lvi);
                 }
             }
             #endregion
-            
+            chValueIfIsEmpty.Checked = model.IsSkipIfValueIsEmpty == 1;
             this.chkLabelIsLoop.Checked = model.IsLoop == 1 ? true : false;
             this.cmbSpiderPlugin.Text = model.SpiderLabelPlugin == string.Empty ? "不使用插件" : model.SpiderLabelPlugin;
             this.chkDownResource.Checked = model.IsDownResource == 1 ? true : false;
-            this.txtDownResourceExt.Text = model.DownResourceExts;
+
+            this.txtDownResourceExt.Text = model.DownResourceExts?? ".jpg;.png;.bmp;.jpeg;.gif";
         }
 
 
@@ -377,6 +427,20 @@ namespace V5_DataCollection.Forms.Task {
                 model.LabelHtmlRemove += "a||||";
             if (this.chkScript.Checked)
                 model.LabelHtmlRemove += "script||||";
+            if (cbu.Checked)
+                model.LabelHtmlRemove += "u||||";
+            if (cbi.Checked)
+                model.LabelHtmlRemove += "i||||";
+            if (cbcode.Checked)
+                model.LabelHtmlRemove += "code||||";
+            if (cbfont.Checked)
+                model.LabelHtmlRemove += "font||||";
+            if (cbp.Checked)
+                model.LabelHtmlRemove += "p||||";
+            if (cbb.Checked)
+                model.LabelHtmlRemove += "b||||";
+            if (cbaddress.Checked)
+                model.LabelHtmlRemove += "address||||";
             if (model.LabelHtmlRemove.Trim() != "")
                 model.LabelHtmlRemove = model.LabelHtmlRemove.Remove(model.LabelHtmlRemove.Length - 4);
             #endregion
@@ -432,5 +496,7 @@ namespace V5_DataCollection.Forms.Task {
                 form.Show(this);
             }
         }
+
+       
     }
 }

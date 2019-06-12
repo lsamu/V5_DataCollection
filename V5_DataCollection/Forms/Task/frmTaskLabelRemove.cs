@@ -1,13 +1,7 @@
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
 
-namespace V5_DataCollection.Forms.Task {
+namespace V5_DataCollection.Forms.Task
+{
     public partial class frmTaskLabelRemove : BaseForm {
         public delegate void TaskLabelRemove(int ItemIndex, string RemoveStr, string CheckLabel, string OpType);
         public TaskLabelRemove TLR;
@@ -45,7 +39,18 @@ namespace V5_DataCollection.Forms.Task {
             if (this.OldName.Trim() != "")
                 OpType = "edit";
             if (this.txtRemoveStr.Text.Trim() != "") {
-                TLR?.Invoke(this.ItemIndex, this.txtRemoveStr.Text, "0", OpType);
+                if (rdbSingleTag.Checked)
+                {
+                    TLR?.Invoke(this.ItemIndex, this.txtRemoveStr.Text, "1", OpType);
+                }
+                else  if (rdbFilterAll.Checked)
+                {
+                    TLR?.Invoke(this.ItemIndex, this.txtRemoveStr.Text, "2", OpType);
+                }
+                else
+                {
+                    TLR?.Invoke(this.ItemIndex, this.txtRemoveStr.Text, "3", OpType);
+                }
             }
             this.Hide();
             this.Close();
@@ -54,6 +59,9 @@ namespace V5_DataCollection.Forms.Task {
         private void frmTaskLabelRemove_Load(object sender, EventArgs e) {
             if (this.OldName.Trim() != "") {
                 this.txtRemoveStr.Text = this.OldName;
+                this.rdbFilterTagOnly.Checked = RemoveLabel == "3";
+                this.rdbSingleTag.Checked = RemoveLabel == "1";
+                this.rdbFilterAll.Checked = RemoveLabel == "2";
             }
         }
     }

@@ -1,26 +1,47 @@
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using V5_DataCollection._Class.DAL;
-
-namespace V5_DataCollection.Forms.Tools {
+using V5_DataCollection._Class.Common;
+using V5_Model;
+namespace V5_DataCollection.Forms.Tools
+{
     public partial class frmImportWebCollectionModule : BaseForm {
         public frmImportWebCollectionModule() {
             InitializeComponent();
         }
-
+       public RefreshParentForm RefreshParentForm;
         private void btnSubmit_Click(object sender, EventArgs e) {
 
             string WebCollectionModule = this.txtWebCollectionModule.Text;
+            
             if (string.IsNullOrEmpty(WebCollectionModule)) {
                 MessageBox.Show("采集模块不能为空!");
                 return;
             }
+
+            var model = SerializeHelper.DeserializeObject<ModelTask>(WebCollectionModule);
+            DALTask dal = new DALTask();
+            int currentMaxId = dal.GetMaxId();
+            model.ID = currentMaxId;
+            dal.Add(model);
+            foreach (ModelTaskLabel label in model.ListTaskLabel)
+            {
+                label.TaskID = currentMaxId;
+                var d = new DALTaskLabel();
+               var m= d.GetMaxID();
+                label.ID = m;
+                d.Add(label);
+            }
+            foreach (ModelWebPublishModule label in model.ListModelWebPublishModule)
+            {
+                label.TaskID = currentMaxId;
+                var d = new DALWebPublishModule();               
+                label.ID = 0;
+                d.Add(label);
+            }
+            MessageBox.Show("导入成功");
+            RefreshParentForm?.Invoke(this,new EventArgs());
             this.Hide();
             this.Close();
         }
@@ -42,6 +63,7 @@ namespace V5_DataCollection.Forms.Tools {
 
         private void btnBroswer_Click(object sender, EventArgs e) {
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
+            openFileDialog1.Filter = "(*.xml)|*.xml";
             if (openFileDialog1.ShowDialog(this) == System.Windows.Forms.DialogResult.OK) {
                 this.txtWebCollectionModule.Text = openFileDialog1.FileName;
             }

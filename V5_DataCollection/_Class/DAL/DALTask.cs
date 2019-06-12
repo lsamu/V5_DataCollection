@@ -31,9 +31,9 @@ namespace V5_DataCollection._Class.DAL {
 
             StringBuilder strSql = new StringBuilder();
             strSql.Append("insert into [S_Task] (");
-            strSql.Append("ID,TaskClassID,TaskName,IsSpiderUrl,IsSpiderContent,IsPublishContent,PageEncode,CollectionType,CollectionContent,LinkUrlMustIncludeStr,LinkUrlNoMustIncludeStr,LinkUrlCutAreaStart,LinkUrlCutAreaEnd,TestViewUrl,IsWebOnlinePublish1,IsSaveLocal2,SaveFileFormat2,SaveDirectory2,SaveHtmlTemplate2,SaveIsCreateIndex2,IsSaveDataBase3,SaveDataType3,SaveDataUrl3,SaveDataSQL3,IsSaveSQL4,SaveSQLContent4,SaveSQLDirectory4,Guid,PluginSpiderUrl,PluginSpiderContent,PluginSaveContent,PluginPublishContent,Status,CollectionContentThreadCount,CollectionContentStepTime,PublishContentThreadCount,PublishContentStepTimeMin,PublishContentStepTimeMax,DemoListUrl,IsPlan,PlanFormat,IsSource,SourceText,CollectionUrlStepTime,CreateTime,UpdateTime,IsHandGetUrl,HandCollectionUrlRegex)");
+            strSql.Append("ID,TaskClassID,TaskName,IsSpiderUrl,IsSpiderContent,IsPublishContent,PageEncode,CollectionType,CollectionContent,LinkUrlMustIncludeStr,LinkUrlNoMustIncludeStr,LinkUrlCutAreaStart,LinkUrlCutAreaEnd,TestViewUrl,IsWebOnlinePublish1,IsSaveLocal2,SaveFileFormat2,SaveDirectory2,SaveHtmlTemplate2,SaveIsCreateIndex2,IsSaveDataBase3,SaveDataType3,SaveDataUrl3,SaveDataSQL3,IsSaveSQL4,SaveSQLContent4,SaveSQLDirectory4,Guid,PluginSpiderUrl,PluginSpiderContent,PluginSaveContent,PluginPublishContent,Status,CollectionContentThreadCount,CollectionContentStepTime,PublishContentThreadCount,PublishContentStepTimeMin,PublishContentStepTimeMax,DemoListUrl,IsPlan,PlanFormat,IsSource,SourceText,CollectionUrlStepTime,CreateTime,UpdateTime,IsHandGetUrl,HandCollectionUrlRegex,ResourceSavePath)");
             strSql.Append(" values (");
-            strSql.Append("@ID,@TaskClassID,@TaskName,@IsSpiderUrl,@IsSpiderContent,@IsPublishContent,@PageEncode,@CollectionType,@CollectionContent,@LinkUrlMustIncludeStr,@LinkUrlNoMustIncludeStr,@LinkUrlCutAreaStart,@LinkUrlCutAreaEnd,@TestViewUrl,@IsWebOnlinePublish1,@IsSaveLocal2,@SaveFileFormat2,@SaveDirectory2,@SaveHtmlTemplate2,@SaveIsCreateIndex2,@IsSaveDataBase3,@SaveDataType3,@SaveDataUrl3,@SaveDataSQL3,@IsSaveSQL4,@SaveSQLContent4,@SaveSQLDirectory4,@Guid,@PluginSpiderUrl,@PluginSpiderContent,@PluginSaveContent,@PluginPublishContent,@Status,@CollectionContentThreadCount,@CollectionContentStepTime,@PublishContentThreadCount,@PublishContentStepTimeMin,@PublishContentStepTimeMax,@DemoListUrl,@IsPlan,@PlanFormat,@IsSource,@SourceText,@CollectionUrlStepTime,@CreateTime,@UpdateTime,@IsHandGetUrl,@HandCollectionUrlRegex)");
+            strSql.Append("@ID,@TaskClassID,@TaskName,@IsSpiderUrl,@IsSpiderContent,@IsPublishContent,@PageEncode,@CollectionType,@CollectionContent,@LinkUrlMustIncludeStr,@LinkUrlNoMustIncludeStr,@LinkUrlCutAreaStart,@LinkUrlCutAreaEnd,@TestViewUrl,@IsWebOnlinePublish1,@IsSaveLocal2,@SaveFileFormat2,@SaveDirectory2,@SaveHtmlTemplate2,@SaveIsCreateIndex2,@IsSaveDataBase3,@SaveDataType3,@SaveDataUrl3,@SaveDataSQL3,@IsSaveSQL4,@SaveSQLContent4,@SaveSQLDirectory4,@Guid,@PluginSpiderUrl,@PluginSpiderContent,@PluginSaveContent,@PluginPublishContent,@Status,@CollectionContentThreadCount,@CollectionContentStepTime,@PublishContentThreadCount,@PublishContentStepTimeMin,@PublishContentStepTimeMax,@DemoListUrl,@IsPlan,@PlanFormat,@IsSource,@SourceText,@CollectionUrlStepTime,@CreateTime,@UpdateTime,@IsHandGetUrl,@HandCollectionUrlRegex,@ResourceSavePath)");
 
             DbHelper.Execute(CommonHelper.SQLiteConnectionString, strSql.ToString(), model);
         }
@@ -91,7 +91,8 @@ namespace V5_DataCollection._Class.DAL {
             strSql.Append("CreateTime=@CreateTime,");
             strSql.Append("UpdateTime=@UpdateTime,");
             strSql.Append("IsHandGetUrl=@IsHandGetUrl,");
-            strSql.Append("HandCollectionUrlRegex=@HandCollectionUrlRegex");
+            strSql.Append("HandCollectionUrlRegex=@HandCollectionUrlRegex,");
+            strSql.Append("ResourceSavePath=@ResourceSavePath");
             strSql.Append(" where ID=@ID ");
 
             return DbHelper.Execute(CommonHelper.SQLiteConnectionString, strSql.ToString(), model) > 0 ? true : false;

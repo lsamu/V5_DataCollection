@@ -46,5 +46,42 @@ namespace V5_DataCollection._Class.Common {
             }
             return false;
         }
+        public static T DeserializeObject<T>(string fileName)
+        {
+            T t = default(T);
+            XmlSerializer serializer = new XmlSerializer(typeof(T));
+            try
+            {                
+                FileStream fs = new FileStream(fileName, FileMode.Open);
+                t = (T)serializer.Deserialize(fs);
+                fs.Close();
+            }
+            catch
+            {
+            }
+            return t;
+        }
+        public static bool SerializeObject<T>(T t,string fileName)
+        {
+            try
+            {
+                
+                if (!File.Exists(fileName))
+                {
+                    File.Create(fileName).Close();
+                }
+                
+                    XmlSerializer serializer = new XmlSerializer(typeof(T));
+                    FileStream fs = new FileStream(fileName, FileMode.Create);
+                    serializer.Serialize(fs, t);
+                    fs.Close();
+                
+                return true;
+            }
+            catch
+            {
+            }
+            return false;
+        }
     }
 }

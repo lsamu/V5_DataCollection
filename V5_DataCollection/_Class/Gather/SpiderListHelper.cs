@@ -1,17 +1,13 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
-using System.Threading.Tasks;
 using V5_DataCollection._Class.Common;
-using V5_DataCollection._Class.PythonExt;
 using V5_Model;
 using V5_Utility.Utility;
 using V5_WinLibs.Core;
 
-namespace V5_DataCollection._Class.Gather {
+namespace V5_DataCollection._Class.Gather
+{
 
     public class SpiderListHelper {
 
@@ -77,14 +73,16 @@ namespace V5_DataCollection._Class.Gather {
             }
 
             string regexHref = cRegexHelper.RegexATag;
-            int i = 0;
+           // int i = 0;
             if (Model.IsHandGetUrl == 1) {
                 regexHref = Model.HandCollectionUrlRegex;
                 regexHref = regexHref.Replace("[", "(?<");
                 regexHref = regexHref.Replace("]", ">.*?)");
                 regexHref = regexHref.Replace("(*)", ".+?");
                 //格式化
-                regexHref = HtmlHelper.Instance.ParseCollectionStrings(regexHref);
+                //20190523这里出现了问题，先注释掉
+               // regexHref = HtmlHelper.Instance.ParseCollectionStrings(regexHref);
+              
             }
 
             Match mch = null;
@@ -96,9 +94,9 @@ namespace V5_DataCollection._Class.Gather {
 
             MatchCollection matches = reg.Matches(pageContent);
             for (mch = reg.Match(pageContent); mch.Success; mch = mch.NextMatch()) {
-                url = CollectionHelper.Instance.FormatUrl(testUrl, mch.Groups[1].Value);
-                title = mch.Groups[2].Value;
-
+                url = CollectionHelper.Instance.FormatUrl(testUrl, mch.Groups["链接"].Value);
+                title = mch.Groups["标题"].Value;
+                cover = CollectionHelper.Instance.FormatUrl(testUrl, mch.Groups["封面"].Value);
                 if (Model.LinkUrlMustIncludeStr.Trim() != "") {
                     if (url.IndexOf(Model.LinkUrlMustIncludeStr) == -1) {
                         continue;

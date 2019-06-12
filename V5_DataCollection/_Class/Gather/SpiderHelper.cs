@@ -1,21 +1,15 @@
 using System;
 using System.Collections.Generic;
-using System.Data.Linq;
-using System.IO;
-using System.Text;
-using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
-using V5_DataCollection._Class.Common;
 using V5_DataCollection._Class.DAL;
 using V5_DataCollection._Class.Publish;
 using V5_Model;
-using V5_Utility.Utility;
 using V5_WinLibs;
 using V5_WinLibs.Core;
-using V5_WinLibs.Utility;
 
-namespace V5_DataCollection._Class.Gather {
+namespace V5_DataCollection._Class.Gather
+{
 
     /// <summary>
     /// 任务类型
@@ -136,7 +130,7 @@ namespace V5_DataCollection._Class.Gather {
             _listLinkUrl.Clear();
 
             MessageOut($"[{modelTask.TaskName}]开始采集数据！请稍候...");
-
+           
             var task = new TaskFactory().StartNew(() => {
                 //加载为采集的列表
                 if (modelTask.IsSpiderUrl == 1) {
@@ -238,7 +232,7 @@ namespace V5_DataCollection._Class.Gather {
         private void StartPublish() {
             var taskView = new TaskFactory().StartNew(() => {
 
-                if (modelTask.IsPublishContent == 1) {
+                if (modelTask.IsPublishContent!=null&&modelTask.IsPublishContent.Value == 1) {
 
                     var publich = new PublishContentHelper();
                     publich.Model = modelTask;

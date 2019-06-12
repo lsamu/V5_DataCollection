@@ -15,6 +15,7 @@ namespace V5_DataCollection._Class {
         public static List<IPlugin> ListISaveContentPlugin = new List<IPlugin>();
         public static List<IPlugin> ListISpiderContentPlugin = new List<IPlugin>();
         public static List<IPlugin> ListISpiderUrlPlugin = new List<IPlugin>();
+        public static List<IOutPutFormat> ListIOutputFormatPlugin = new List<IOutPutFormat>();
 
         public static string SpiderUrlPluginPath = AppDomain.CurrentDomain.BaseDirectory + "\\Plugins\\SpiderUrl\\";
         public static string SpiderContentPluginPath = AppDomain.CurrentDomain.BaseDirectory + "\\Plugins\\SpiderContent\\";
@@ -23,6 +24,16 @@ namespace V5_DataCollection._Class {
 
         static PluginUtility() {
             // LoadAllDlls();
+            AppDomain curDomain = AppDomain.CurrentDomain;
+            curDomain.AssemblyResolve += (object sender, ResolveEventArgs args) =>
+            {
+
+                string module = new AssemblyName(args.Name).Name;
+                if (module.EndsWith(".resources"))
+                    return null;
+                string dll = Path.Combine(SaveContentPluginPath, string.Format("{0}.dll", module));
+                return Assembly.LoadFrom(dll);
+            };
         }
 
         public static void LoadAllDlls() {
@@ -115,8 +126,41 @@ namespace V5_DataCollection._Class {
             }
             #endregion
 
-        }
+            #region 保存内容
+            ListIOutputFormatPlugin.Clear();
+            if (!Directory.Exists(SaveContentPluginPath))
+            {
+                Directory.CreateDirectory(SaveContentPluginPath);
+            }
+            else
+            {
+                
+                publishFiles = Directory.GetFiles(SaveContentPluginPath, "*Plugin.dll");
+                foreach (string str2 in publishFiles)
+                {
+                    try
+                    {
+                        Assembly assembly = Assembly.LoadFrom(str2);
+                      //  FileInfo fi = new FileInfo(str2);
+                       // string ff = fi.Name.Replace(fi.Extension, "");
+                       // ff = ff.Replace("Plugin", "");
+                       // IPlugin item = (IPlugin)Activator.CreateInstance(assembly.GetType("V5.DataCollection.Core." + ff));
+                       // ListISaveContentPlugin.Add(item);
+                    }
+                    catch (Exception) { }
+                }
+              var ass=  AppDomain.CurrentDomain.GetAssemblies();
+                var types = ass.SelectMany(x => x.GetTypes()).Where(t => t.GetInterface(typeof(IOutPutFormat).Name)!=null);
+                foreach (var t in types)
+                {
+                    IOutPutFormat item = (IOutPutFormat)Activator.CreateInstance(t);
+                    ListIOutputFormatPlugin.Add(item);
+                }
 
+
+            }
+            #endregion
+        }
         /// <summary>
         ///  根据名称获取插件 Type 1,2,3,4
         /// </summary>

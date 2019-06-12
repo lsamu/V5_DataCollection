@@ -17,7 +17,7 @@ using V5_WinLibs.Core;
 using WeifenLuo.WinFormsUI.Docking;
 
 namespace V5_DataCollection {
-
+    public delegate void RefreshParentForm(object sender, EventArgs e);
     public partial class frmMain : Form {
 
         #region Ë½ÓÐ²ÎÊý
@@ -193,6 +193,9 @@ namespace V5_DataCollection {
 
         private void ToolStripMenuItem_ImportWebCollection_Click(object sender, EventArgs e) {
             frmImportWebCollectionModule formImportWebCollectionModule = new frmImportWebCollectionModule();
+            formImportWebCollectionModule.RefreshParentForm=(object s, EventArgs e1) => {
+                m_frmTaskMain.Bind_DataList();
+            };
             formImportWebCollectionModule.ShowDialog();
         }
 

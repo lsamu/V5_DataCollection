@@ -24,4 +24,5 @@ namespace V5_DataCollection.Forms.Task
         /// <param name="e"></param>
         public delegate void TaskOpHandler(object sender, TaskEvents.TaskOpEvents e);
     }
+  
 }

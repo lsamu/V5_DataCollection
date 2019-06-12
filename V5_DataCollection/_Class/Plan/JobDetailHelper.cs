@@ -1,14 +1,13 @@
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using Quartz;
 using V5_DataCollection._Class.Common;
 using V5_DataCollection._Class.DAL;
 using V5_DataCollection._Class.Gather;
 using V5_Model;
 
-namespace V5_DataCollection._Class.Plan {
+namespace V5_DataCollection._Class.Plan
+{
     public class JobDetailHelper : IJob {
         DALTask dal = new DALTask();
         public void Execute(IJobExecutionContext context) {

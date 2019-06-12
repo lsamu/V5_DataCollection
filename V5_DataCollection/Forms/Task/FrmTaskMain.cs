@@ -1,16 +1,11 @@
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using WeifenLuo.WinFormsUI.Docking;
 using V5_Model;
 using V5_DataCollection._Class.Common;
-using System.Threading;
-using System.Text.RegularExpressions;
 using System.IO;
 using V5_DataCollection._Class.Gather;
 using V5_DataCollection.Forms.Task.TaskData;
@@ -19,8 +14,11 @@ using V5_DataCollection._Class.DAL;
 using V5_WinLibs.Core;
 using V5_Utility.Utility;
 using V5_WinLibs.DBUtility;
-
-namespace V5_DataCollection.Forms.Task {
+using V5_DataCollection._Class;
+using V5_DataPlugins;
+using System.Diagnostics;
+namespace V5_DataCollection.Forms.Task
+{
 
     public partial class FrmTaskMain : BaseContent {
 
@@ -41,6 +39,36 @@ namespace V5_DataCollection.Forms.Task {
 
         private void FrmTaskMain_Load(object sender, EventArgs e) {
             Bind_DataList();
+            Bind_Plugin();
+            tsmExportData.DropDownItems.Clear();
+            foreach (IOutPutFormat t in PluginUtility.ListIOutputFormatPlugin)
+            {
+                var item = new ToolStripMenuItem(t.Format);
+                item.Click += (object s, EventArgs e1) =>
+                  {
+                      var id = Get_DataViewID();
+                      var Model = new DALTask().GetModel(id);
+                      string LocalSQLiteName = "Data\\Collection\\" + Model.TaskName + "\\SpiderResult.db";
+                      DataTable dtData = DbHelper.Query(LocalSQLiteName, "Select * From Content").Tables[0];
+                      if (!Directory.Exists(Model.SaveDirectory2))
+                          Directory.CreateDirectory(Model.SaveDirectory2);
+                      if (File.Exists(LocalSQLiteName))
+                      {
+                          var r = t.RunSave(dtData, Model);
+                          MainEvents.OutPutWindowEventArgs ev = new MainEvents.OutPutWindowEventArgs();
+                          if (r.IsOk)
+                          {
+                              ev.Message = r.Message;
+                              OutPutWindowDelegate?.Invoke(this, ev);
+                          }
+                          else
+                          {
+                              ev.Message = "保存过程出现错误" + r.Message;
+                              OutPutWindowDelegate?.Invoke(this, ev);
+                          } }
+                  };
+                tsmExportData.DropDownItems.Add(item);
+            }
         }
 
         /// <summary>
@@ -49,7 +77,10 @@ namespace V5_DataCollection.Forms.Task {
         public void Bind_DataList() {
             Bind_DataList(string.Empty);
         }
-
+        private void Bind_Plugin()
+        {
+            PluginUtility.LoadAllDlls();
+        }
         public void Bind_DataList(string strWhere) {
             if (this.ClassID > 0) {
                 strWhere += " And TaskClassID=" + this.ClassID + " ";
@@ -353,6 +384,7 @@ namespace V5_DataCollection.Forms.Task {
                 }
                 int ID = Get_DataViewID();
                 CreateDataFile(TaskName, ID);
+                MessageBox.Show("重建成功");
             }
         }
 
@@ -393,13 +425,29 @@ namespace V5_DataCollection.Forms.Task {
             }
             else {
                 DataTable dt = new DALTaskLabel().GetList(" TaskID=" + taskID).Tables[0];
-                foreach (DataRow dr in dt.Rows) {
-                    try {
+                //20190522 更新原因，原来删除或更改字段时，本地数据库中原有列不能删除，或变更
+                var columns = "ID,[HrefSource],[已采],[已发],";
+                foreach (DataRow dr in dt.Rows)
+                {
+                    try
+                    {
+                        //20190522 更新原因，原来删除或更改字段时，本地数据库中原有列不能删除，或变更
+                        columns += "[" + dr["LabelName"] + "],";
                         DbHelper.Execute(LocalSQLiteName, " ALTER TABLE Content ADD COLUMN [" + dr["LabelName"] + "] VARCHAR; ");
+
                     }
-                    catch {
+                    catch
+                    {
                         continue;
                     }
+                }
+                //20190522 更新原因，原来删除或更改字段时，本地数据库中原有列不能删除，或变更
+                columns = columns.TrimEnd(',');
+                if (!string.IsNullOrEmpty(columns))
+                {
+                    DbHelper.Execute(LocalSQLiteName, $"create table tempContent as select {columns} from Content ");
+                    DbHelper.Execute(LocalSQLiteName, $"drop table if exists Content ");
+                    DbHelper.Execute(LocalSQLiteName, $"alter table tempContent rename to Content ");
                 }
 
             }
@@ -456,10 +504,63 @@ namespace V5_DataCollection.Forms.Task {
             if (id > 0) {
                 var dal = new DALTask();
                 var model = dal.GetModelSingleTask(id);
+                var saveDialog = new SaveFileDialog();
+                saveDialog.Filter = "(*.xml)|*.xml";
+                saveDialog.FileName = model.TaskName+DateTime.Now.ToString("yyyy-MM-dd");
+                if (saveDialog.ShowDialog() == DialogResult.OK)
+                {
+                    if (SerializeHelper.SerializeObject<ModelTask>(model, saveDialog.FileName))
+                    {
+                        MessageBox.Show("导出成功");
+                    }
+                }
+
 
             }
         }
         #endregion
 
+        private void tsmRefreshTaskList_Click(object sender, EventArgs e)
+        {
+            Bind_DataList();
+        }
+
+        private void tsmOpenTaskDir_Click(object sender, EventArgs e)
+        {
+            ModelTask model = new ModelTask();
+            int ID = Get_DataViewID();
+            DALTask dal = new DALTask();
+            model = dal.GetModelSingleTask(ID);
+           // if (!string.IsNullOrEmpty(model.TaskName))
+          //  {
+                Process p = new Process();
+                p.StartInfo.FileName = "explorer.exe";
+                p.StartInfo.Arguments = AppDomain.CurrentDomain.BaseDirectory + "Data\\Collection\\" + model.TaskName;
+                p.Start();
+              
+           // }
+        }
+
+        private void tsmTaskOpenResourceDir_Click(object sender, EventArgs e)
+        {
+            ModelTask model = new ModelTask();
+            int ID = Get_DataViewID();
+            DALTask dal = new DALTask();
+            model = dal.GetModelSingleTask(ID);
+            if (!string.IsNullOrEmpty(model.ResourceSavePath))
+            {
+                Process p = new Process();
+                p.StartInfo.FileName = "explorer.exe";
+                p.StartInfo.Arguments = model.ResourceSavePath; 
+                p.Start();
+            }
+            else
+            {
+                Process p = new Process();
+                p.StartInfo.FileName = "explorer.exe";
+                p.StartInfo.Arguments =  AppDomain.CurrentDomain.BaseDirectory + "Data\\Collection\\" + model.TaskName + "\\Images\\";
+                p.Start();
+            }
+        }
     }
 }

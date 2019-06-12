@@ -33,14 +33,22 @@ namespace V5_DataCollection.Forms.Task
             this.components = new System.ComponentModel.Container();
             this.txtID = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.chValueIfIsEmpty = new System.Windows.Forms.CheckBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.v5LinkLabel6 = new V5_WinControls.V5LinkLabel(this.components);
             this.txtLabelNameCutRegex = new V5_WinControls.V5RichTextBox();
             this.v5LinkLabel5 = new V5_WinControls.V5LinkLabel(this.components);
             this.chkLabelIsLoop = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.cbb = new System.Windows.Forms.CheckBox();
+            this.cbaddress = new System.Windows.Forms.CheckBox();
+            this.cbfont = new System.Windows.Forms.CheckBox();
+            this.cbcode = new System.Windows.Forms.CheckBox();
+            this.cbi = new System.Windows.Forms.CheckBox();
+            this.cbu = new System.Windows.Forms.CheckBox();
             this.chkhref = new System.Windows.Forms.CheckBox();
-            this.checkBox6 = new System.Windows.Forms.CheckBox();
+            this.cbp = new System.Windows.Forms.CheckBox();
             this.chkScript = new System.Windows.Forms.CheckBox();
             this.chkFont = new System.Windows.Forms.CheckBox();
             this.chkTable = new System.Windows.Forms.CheckBox();
@@ -77,7 +85,6 @@ namespace V5_DataCollection.Forms.Task
             this.txtLogView = new System.Windows.Forms.TextBox();
             this.btnTest = new System.Windows.Forms.Button();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.label4 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -99,6 +106,7 @@ namespace V5_DataCollection.Forms.Task
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.chValueIfIsEmpty);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.v5LinkLabel6);
             this.groupBox2.Controls.Add(this.v5LinkLabel5);
@@ -111,6 +119,25 @@ namespace V5_DataCollection.Forms.Task
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "截取";
+            // 
+            // chValueIfIsEmpty
+            // 
+            this.chValueIfIsEmpty.AutoSize = true;
+            this.chValueIfIsEmpty.Location = new System.Drawing.Point(6, 66);
+            this.chValueIfIsEmpty.Name = "chValueIfIsEmpty";
+            this.chValueIfIsEmpty.Size = new System.Drawing.Size(72, 16);
+            this.chValueIfIsEmpty.TabIndex = 14;
+            this.chValueIfIsEmpty.Text = "空值跳过";
+            this.chValueIfIsEmpty.UseVisualStyleBackColor = true;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(646, 66);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(41, 12);
+            this.label4.TabIndex = 13;
+            this.label4.Text = "[常用]";
             // 
             // v5LinkLabel6
             // 
@@ -126,9 +153,9 @@ namespace V5_DataCollection.Forms.Task
             // 
             // txtLabelNameCutRegex
             // 
-            this.txtLabelNameCutRegex.Location = new System.Drawing.Point(65, 16);
+            this.txtLabelNameCutRegex.Location = new System.Drawing.Point(84, 16);
             this.txtLabelNameCutRegex.Name = "txtLabelNameCutRegex";
-            this.txtLabelNameCutRegex.Size = new System.Drawing.Size(575, 71);
+            this.txtLabelNameCutRegex.Size = new System.Drawing.Size(556, 71);
             this.txtLabelNameCutRegex.TabIndex = 10;
             this.txtLabelNameCutRegex.Text = "";
             // 
@@ -147,7 +174,7 @@ namespace V5_DataCollection.Forms.Task
             // chkLabelIsLoop
             // 
             this.chkLabelIsLoop.AutoSize = true;
-            this.chkLabelIsLoop.Location = new System.Drawing.Point(11, 58);
+            this.chkLabelIsLoop.Location = new System.Drawing.Point(6, 47);
             this.chkLabelIsLoop.Name = "chkLabelIsLoop";
             this.chkLabelIsLoop.Size = new System.Drawing.Size(48, 16);
             this.chkLabelIsLoop.TabIndex = 3;
@@ -164,8 +191,14 @@ namespace V5_DataCollection.Forms.Task
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.cbb);
+            this.groupBox3.Controls.Add(this.cbaddress);
+            this.groupBox3.Controls.Add(this.cbfont);
+            this.groupBox3.Controls.Add(this.cbcode);
+            this.groupBox3.Controls.Add(this.cbi);
+            this.groupBox3.Controls.Add(this.cbu);
             this.groupBox3.Controls.Add(this.chkhref);
-            this.groupBox3.Controls.Add(this.checkBox6);
+            this.groupBox3.Controls.Add(this.cbp);
             this.groupBox3.Controls.Add(this.chkScript);
             this.groupBox3.Controls.Add(this.chkFont);
             this.groupBox3.Controls.Add(this.chkTable);
@@ -177,34 +210,90 @@ namespace V5_DataCollection.Forms.Task
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Html标签排除";
             // 
+            // cbb
+            // 
+            this.cbb.AutoSize = true;
+            this.cbb.Location = new System.Drawing.Point(304, 18);
+            this.cbb.Name = "cbb";
+            this.cbb.Size = new System.Drawing.Size(30, 16);
+            this.cbb.TabIndex = 5;
+            this.cbb.Text = "b";
+            this.cbb.UseVisualStyleBackColor = true;
+            // 
+            // cbaddress
+            // 
+            this.cbaddress.AutoSize = true;
+            this.cbaddress.Location = new System.Drawing.Point(218, 41);
+            this.cbaddress.Name = "cbaddress";
+            this.cbaddress.Size = new System.Drawing.Size(66, 16);
+            this.cbaddress.TabIndex = 4;
+            this.cbaddress.Text = "address";
+            this.cbaddress.UseVisualStyleBackColor = true;
+            // 
+            // cbfont
+            // 
+            this.cbfont.AutoSize = true;
+            this.cbfont.Location = new System.Drawing.Point(164, 41);
+            this.cbfont.Name = "cbfont";
+            this.cbfont.Size = new System.Drawing.Size(48, 16);
+            this.cbfont.TabIndex = 4;
+            this.cbfont.Text = "font";
+            this.cbfont.UseVisualStyleBackColor = true;
+            // 
+            // cbcode
+            // 
+            this.cbcode.AutoSize = true;
+            this.cbcode.Location = new System.Drawing.Point(101, 41);
+            this.cbcode.Name = "cbcode";
+            this.cbcode.Size = new System.Drawing.Size(48, 16);
+            this.cbcode.TabIndex = 4;
+            this.cbcode.Text = "code";
+            this.cbcode.UseVisualStyleBackColor = true;
+            // 
+            // cbi
+            // 
+            this.cbi.AutoSize = true;
+            this.cbi.Location = new System.Drawing.Point(240, 18);
+            this.cbi.Name = "cbi";
+            this.cbi.Size = new System.Drawing.Size(30, 16);
+            this.cbi.TabIndex = 4;
+            this.cbi.Text = "i";
+            this.cbi.UseVisualStyleBackColor = true;
+            // 
+            // cbu
+            // 
+            this.cbu.AutoSize = true;
+            this.cbu.Location = new System.Drawing.Point(201, 18);
+            this.cbu.Name = "cbu";
+            this.cbu.Size = new System.Drawing.Size(30, 16);
+            this.cbu.TabIndex = 4;
+            this.cbu.Text = "u";
+            this.cbu.UseVisualStyleBackColor = true;
+            // 
             // chkhref
             // 
             this.chkhref.AutoSize = true;
-            this.chkhref.Checked = true;
-            this.chkhref.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkhref.Location = new System.Drawing.Point(241, 19);
+            this.chkhref.Location = new System.Drawing.Point(164, 19);
             this.chkhref.Name = "chkhref";
             this.chkhref.Size = new System.Drawing.Size(30, 16);
             this.chkhref.TabIndex = 4;
             this.chkhref.Text = "A";
             this.chkhref.UseVisualStyleBackColor = true;
             // 
-            // checkBox6
+            // cbp
             // 
-            this.checkBox6.AutoSize = true;
-            this.checkBox6.Location = new System.Drawing.Point(111, 41);
-            this.checkBox6.Name = "checkBox6";
-            this.checkBox6.Size = new System.Drawing.Size(30, 16);
-            this.checkBox6.TabIndex = 4;
-            this.checkBox6.Text = "p";
-            this.checkBox6.UseVisualStyleBackColor = true;
+            this.cbp.AutoSize = true;
+            this.cbp.Location = new System.Drawing.Point(271, 18);
+            this.cbp.Name = "cbp";
+            this.cbp.Size = new System.Drawing.Size(30, 16);
+            this.cbp.TabIndex = 4;
+            this.cbp.Text = "p";
+            this.cbp.UseVisualStyleBackColor = true;
             // 
             // chkScript
             // 
             this.chkScript.AutoSize = true;
-            this.chkScript.Checked = true;
-            this.chkScript.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkScript.Location = new System.Drawing.Point(111, 18);
+            this.chkScript.Location = new System.Drawing.Point(102, 18);
             this.chkScript.Name = "chkScript";
             this.chkScript.Size = new System.Drawing.Size(60, 16);
             this.chkScript.TabIndex = 4;
@@ -234,7 +323,7 @@ namespace V5_DataCollection.Forms.Task
             // chkAllHtml
             // 
             this.chkAllHtml.AutoSize = true;
-            this.chkAllHtml.Location = new System.Drawing.Point(241, 42);
+            this.chkAllHtml.Location = new System.Drawing.Point(286, 41);
             this.chkAllHtml.Name = "chkAllHtml";
             this.chkAllHtml.Size = new System.Drawing.Size(48, 16);
             this.chkAllHtml.TabIndex = 0;
@@ -248,23 +337,24 @@ namespace V5_DataCollection.Forms.Task
             this.groupBox4.Controls.Add(this.chkDownResource);
             this.groupBox4.Location = new System.Drawing.Point(359, 160);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(340, 65);
+            this.groupBox4.Size = new System.Drawing.Size(340, 88);
             this.groupBox4.TabIndex = 2;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "下载选项";
             // 
             // txtDownResourceExt
             // 
-            this.txtDownResourceExt.Location = new System.Drawing.Point(171, 18);
+            this.txtDownResourceExt.Location = new System.Drawing.Point(11, 52);
             this.txtDownResourceExt.Multiline = true;
             this.txtDownResourceExt.Name = "txtDownResourceExt";
-            this.txtDownResourceExt.Size = new System.Drawing.Size(163, 43);
+            this.txtDownResourceExt.Size = new System.Drawing.Size(163, 30);
             this.txtDownResourceExt.TabIndex = 5;
+            this.txtDownResourceExt.Text = ".jpg;.png;.bmp;.jpeg;.gif";
             // 
             // label33
             // 
             this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(9, 42);
+            this.label33.Location = new System.Drawing.Point(13, 37);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(161, 12);
             this.label33.TabIndex = 4;
@@ -286,9 +376,9 @@ namespace V5_DataCollection.Forms.Task
             this.groupBox5.Controls.Add(this.btnContentRemoveEdit);
             this.groupBox5.Controls.Add(this.btnContentRemoveAdd);
             this.groupBox5.Controls.Add(this.listViewContentRemove);
-            this.groupBox5.Location = new System.Drawing.Point(6, 228);
+            this.groupBox5.Location = new System.Drawing.Point(6, 247);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(340, 110);
+            this.groupBox5.Size = new System.Drawing.Size(331, 117);
             this.groupBox5.TabIndex = 3;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "内容排除";
@@ -340,12 +430,12 @@ namespace V5_DataCollection.Forms.Task
             // 
             // columnHeader1
             // 
-            this.columnHeader1.Text = "字符串";
+            this.columnHeader1.Text = "Html标签";
             this.columnHeader1.Width = 160;
             // 
             // columnHeader4
             // 
-            this.columnHeader4.Text = "过滤整个标签";
+            this.columnHeader4.Text = "过滤类型";
             this.columnHeader4.Width = 90;
             // 
             // groupBox6
@@ -354,7 +444,7 @@ namespace V5_DataCollection.Forms.Task
             this.groupBox6.Controls.Add(this.listViewContentReplace);
             this.groupBox6.Controls.Add(this.btnContentReplaceEdit);
             this.groupBox6.Controls.Add(this.btnContentReplaceAdd);
-            this.groupBox6.Location = new System.Drawing.Point(359, 229);
+            this.groupBox6.Location = new System.Drawing.Point(350, 254);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(340, 110);
             this.groupBox6.TabIndex = 3;
@@ -505,9 +595,9 @@ namespace V5_DataCollection.Forms.Task
             // groupBox10
             // 
             this.groupBox10.Controls.Add(this.txtLogView);
-            this.groupBox10.Location = new System.Drawing.Point(6, 343);
+            this.groupBox10.Location = new System.Drawing.Point(6, 370);
             this.groupBox10.Name = "groupBox10";
-            this.groupBox10.Size = new System.Drawing.Size(693, 110);
+            this.groupBox10.Size = new System.Drawing.Size(693, 83);
             this.groupBox10.TabIndex = 15;
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "日志";
@@ -520,7 +610,7 @@ namespace V5_DataCollection.Forms.Task
             this.txtLogView.Multiline = true;
             this.txtLogView.Name = "txtLogView";
             this.txtLogView.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtLogView.Size = new System.Drawing.Size(687, 90);
+            this.txtLogView.Size = new System.Drawing.Size(687, 63);
             this.txtLogView.TabIndex = 0;
             // 
             // btnTest
@@ -543,15 +633,6 @@ namespace V5_DataCollection.Forms.Task
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "编辑";
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(646, 66);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(41, 12);
-            this.label4.TabIndex = 13;
-            this.label4.Text = "[常用]";
             // 
             // frmTaskSpiderLabel
             // 
@@ -619,7 +700,7 @@ namespace V5_DataCollection.Forms.Task
         private System.Windows.Forms.CheckBox chkFont;
         private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.CheckBox chkScript;
-        private System.Windows.Forms.CheckBox checkBox6;
+        private System.Windows.Forms.CheckBox cbp;
         private System.Windows.Forms.CheckBox chkhref;
         private System.Windows.Forms.CheckBox chkDownResource;
         private System.Windows.Forms.TextBox txtDownResourceExt;
@@ -642,5 +723,12 @@ namespace V5_DataCollection.Forms.Task
         private System.Windows.Forms.Button btnTest;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.CheckBox cbaddress;
+        private System.Windows.Forms.CheckBox cbfont;
+        private System.Windows.Forms.CheckBox cbcode;
+        private System.Windows.Forms.CheckBox cbi;
+        private System.Windows.Forms.CheckBox cbu;
+        private System.Windows.Forms.CheckBox cbb;
+        private System.Windows.Forms.CheckBox chValueIfIsEmpty;
     }
 }

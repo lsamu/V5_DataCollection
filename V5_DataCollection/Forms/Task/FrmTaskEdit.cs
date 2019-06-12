@@ -1,12 +1,8 @@
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
-using System.Text.RegularExpressions;
 using V5_Model;
 using System.IO;
 using V5_DataCollection._Class.Gather;
@@ -14,21 +10,18 @@ using V5_DataCollection.Forms.Publish;
 using V5_DataCollection._Class.Common;
 using System.Diagnostics;
 using V5_DataPlugins;
-using V5_DataCollection._Class.PythonExt;
 using V5_DataCollection.Forms.Task.Tools;
 using V5_DataCollection._Class.DAL;
 using V5_DataCollection._Class.Plan;
 using V5_DataCollection._Class;
-using V5_Utility.Utility;
-using V5_WinLibs.Core;
-using V5_WinLibs.Utility;
 using V5_WinLibs.Expand;
 using V5_WinControls;
 using V5_WinLibs.DBUtility;
 using System.Threading.Tasks;
 using V5_DataCollection.Forms.Tools;
 
-namespace V5_DataCollection.Forms.Task {
+namespace V5_DataCollection.Forms.Task
+{
     public partial class FrmTaskEdit : BaseForm {
 
         #region 访问器
@@ -83,7 +76,7 @@ namespace V5_DataCollection.Forms.Task {
         #region 绑定插件
         private void Bind_Plugins() {
 
-            PluginUtility.LoadAllDlls();
+         //   PluginUtility.LoadAllDlls();
             List<IPlugin> Plugins = PluginUtility.ListISpiderUrlPlugin;
             foreach (IPlugin item in Plugins) {
                 this.cmbSpiderUrlPlugins.Items.Add(item.PluginName);
@@ -109,6 +102,11 @@ namespace V5_DataCollection.Forms.Task {
             }
             this.cmbPublishContentPlugins.Items.Insert(0, "不使用插件");
             this.cmbPublishContentPlugins.SelectedIndex = 0;
+            ddlSaveFileFormat2.Items.Clear();
+            foreach (IOutPutFormat t in PluginUtility.ListIOutputFormatPlugin)
+            {
+                ddlSaveFileFormat2.Items.Add(t);
+            }
         }
 
         #endregion
@@ -390,6 +388,7 @@ namespace V5_DataCollection.Forms.Task {
                         ListView.SelectedListViewItemCollection item = this.listViewTaskLabel.SelectedItems;
                         DALTaskLabel dal = new DALTaskLabel();
                         dal.Delete(int.Parse("0" + item[0].Tag));
+                     
                         this.Bind_TaskLabel(" TaskID=" + this.ID);
                     }
                 }
@@ -455,19 +454,9 @@ namespace V5_DataCollection.Forms.Task {
         }
 
         private void ddlSaveLocalFileFormat_SelectedIndexChanged(object sender, EventArgs e) {
-            string format = this.ddlSaveFileFormat2.Text;
-            if (format == ".Html") {
-                txtSaveHtmlTemplate2.Enabled = true;
-                btnSaveLocalHtmlTemplatePath.Enabled = true;
-            }
-            else if (format == ".Sql") {
-                txtSaveHtmlTemplate2.Enabled = true;
-                this.btnSaveLocalHtmlTemplatePath.Enabled = true;
-            }
-            else {
-                txtSaveHtmlTemplate2.Enabled = false;
-                btnSaveLocalHtmlTemplatePath.Enabled = false;
-            }
+            var item = (IOutPutFormat)ddlSaveFileFormat2.SelectedItem;
+            txtSaveHtmlTemplate2.Enabled = item.SuportTemplate;
+            btnSaveLocalHtmlTemplatePath.Enabled = item.SuportSavePath;
         }
         #endregion
 
@@ -486,6 +475,7 @@ namespace V5_DataCollection.Forms.Task {
                 MessageBox.Show("数据库链接不能为空!", "警告!");
             }
             else {
+                
                 var dbType = DataBaseType.SqlServer;
 
                 var dbLink = txtSaveDataUrl3.Text;
@@ -606,6 +596,7 @@ namespace V5_DataCollection.Forms.Task {
 
             this.chkIsSource.Checked = model.IsSource == 1 ? true : false;
             this.txtSourceText.Text = model.SourceText;
+            txtChooseSavePath.Text = model.ResourceSavePath?? AppDomain.CurrentDomain.BaseDirectory + "Data\\Collection\\" + model.TaskName + "\\Images\\"; ;
         }
         #endregion
 
@@ -728,6 +719,10 @@ namespace V5_DataCollection.Forms.Task {
             model.IsSource = this.chkIsSource.Checked ? 1 : 0;
             model.SourceText = this.txtSourceText.Text;
 
+            if (!string.IsNullOrEmpty(txtChooseSavePath.Text))
+            {
+                model.ResourceSavePath = txtChooseSavePath.Text.TrimEnd('\\') + "\\";
+            }
 
             if (ID == 0) {
                 string guid = Guid.NewGuid().ToString();
@@ -823,13 +818,26 @@ namespace V5_DataCollection.Forms.Task {
             }
             else {
                 DataTable dt = new DALTaskLabel().GetList(" TaskID=" + taskID).Tables[0];
+                //20190522 更新原因，原来删除或更改字段时，本地数据库中原有列不能删除，或变更
+                var columns = "ID,[HrefSource],[已采],[已发],";
                 foreach (DataRow dr in dt.Rows) {
                     try {
+                        //20190522 更新原因，原来删除或更改字段时，本地数据库中原有列不能删除，或变更
+                        columns +="["+ dr["LabelName"] + "],";
                         DbHelper.Execute(LocalSQLiteName, " ALTER TABLE Content ADD COLUMN [" + dr["LabelName"] + "] VARCHAR; ");
+                       
                     }
                     catch {
                         continue;
                     }
+                }
+                //20190522 更新原因，原来删除或更改字段时，本地数据库中原有列不能删除，或变更
+                columns = columns.TrimEnd(',');
+                if (!string.IsNullOrEmpty(columns))
+                {
+                    DbHelper.Execute(LocalSQLiteName, $"create table tempContent as select {columns} from Content ");
+                    DbHelper.Execute(LocalSQLiteName, $"drop table if exists Content ");
+                    DbHelper.Execute(LocalSQLiteName, $"alter table tempContent rename to Content ");
                 }
             }
         }
@@ -1038,6 +1046,52 @@ namespace V5_DataCollection.Forms.Task {
                 form.PythonFilePath = PluginUtility.SpiderUrlPluginPath + item;
                 form.PythonInputParam = list.ToArray();
                 form.Show(this);
+            }
+        }
+
+        private void rbtnSqlite_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbtnAccess.Checked || rbtnSqlite.Checked)
+            {
+                btnChooseDbPath.Visible = true;
+            }
+            else
+            {
+                btnChooseDbPath.Visible = false;
+            }
+        }
+
+        private void btnChooseDbPath_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog dialog = new OpenFileDialog();
+            dialog.Filter = "(所有文件)|*.*";
+            dialog.Multiselect = false;
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                txtDbPath.Text = dialog.FileName;
+            }
+        }
+
+        private void txtDbPath_TextChanged(object sender, EventArgs e)
+        {
+            if (rbtnSqlite.Checked)
+            {
+                txtSaveDataUrl3.Text = $"Data Source={txtDbPath.Text};";
+            }
+            else if (rbtnAccess.Checked)
+            { txtSaveDataUrl3.Text = $"Database={txtDbPath.Text};"; }
+            else
+            {
+                txtSaveDataUrl3.Text = $"Server={txtDbPath.Text};Database=v5;Uid=root;Pwd=root;";
+            }
+        }
+
+        private void btnChooseSavePath_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog dialog = new FolderBrowserDialog();
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                txtChooseSavePath.Text = dialog.SelectedPath;
             }
         }
     }
