@@ -41,6 +41,8 @@ namespace V5_DataCollection.Forms.Task {
             this.ToolStripMenuItem_ReCreateTable = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItem_ViewTaskData = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmExportData = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmOpenTaskDir = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmTaskOpenResourceDir = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
             this.计划任务ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.导出采集规则ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -57,8 +59,6 @@ namespace V5_DataCollection.Forms.Task {
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tsmOpenTaskDir = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmTaskOpenResourceDir = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip_TaskList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_TaskList)).BeginInit();
             this.SuspendLayout();
@@ -173,6 +173,21 @@ namespace V5_DataCollection.Forms.Task {
             this.tsmExportData.Name = "tsmExportData";
             this.tsmExportData.Size = new System.Drawing.Size(184, 22);
             this.tsmExportData.Text = "导出数据";
+            this.tsmExportData.MouseEnter += new System.EventHandler(this.tsmExportData_MouseEnter);
+            // 
+            // tsmOpenTaskDir
+            // 
+            this.tsmOpenTaskDir.Name = "tsmOpenTaskDir";
+            this.tsmOpenTaskDir.Size = new System.Drawing.Size(184, 22);
+            this.tsmOpenTaskDir.Text = "打开任务目录";
+            this.tsmOpenTaskDir.Click += new System.EventHandler(this.tsmOpenTaskDir_Click);
+            // 
+            // tsmTaskOpenResourceDir
+            // 
+            this.tsmTaskOpenResourceDir.Name = "tsmTaskOpenResourceDir";
+            this.tsmTaskOpenResourceDir.Size = new System.Drawing.Size(184, 22);
+            this.tsmTaskOpenResourceDir.Text = "打开下载资源目录";
+            this.tsmTaskOpenResourceDir.Click += new System.EventHandler(this.tsmTaskOpenResourceDir_Click);
             // 
             // toolStripMenuItem3
             // 
@@ -306,20 +321,6 @@ namespace V5_DataCollection.Forms.Task {
             this.dataGridViewTextBoxColumn3.DataPropertyName = "TaskName";
             this.dataGridViewTextBoxColumn3.HeaderText = "任务名称";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            // 
-            // tsmOpenTaskDir
-            // 
-            this.tsmOpenTaskDir.Name = "tsmOpenTaskDir";
-            this.tsmOpenTaskDir.Size = new System.Drawing.Size(184, 22);
-            this.tsmOpenTaskDir.Text = "打开任务目录";
-            this.tsmOpenTaskDir.Click += new System.EventHandler(this.tsmOpenTaskDir_Click);
-            // 
-            // tsmTaskOpenResourceDir
-            // 
-            this.tsmTaskOpenResourceDir.Name = "tsmTaskOpenResourceDir";
-            this.tsmTaskOpenResourceDir.Size = new System.Drawing.Size(184, 22);
-            this.tsmTaskOpenResourceDir.Text = "打开下载资源目录";
-            this.tsmTaskOpenResourceDir.Click += new System.EventHandler(this.tsmTaskOpenResourceDir_Click);
             // 
             // FrmTaskMain
             // 

@@ -76,13 +76,17 @@ namespace V5_DataCollection._Class.Gather
            // int i = 0;
             if (Model.IsHandGetUrl == 1) {
                 regexHref = Model.HandCollectionUrlRegex;
+                regexHref = HtmlHelper.Instance.ParseCollectionStrings(regexHref);
+                regexHref = HtmlHelper.Instance.UnParseCollectionStrings(regexHref);
                 regexHref = regexHref.Replace("[", "(?<");
                 regexHref = regexHref.Replace("]", ">.*?)");
-                regexHref = regexHref.Replace("(*)", ".+?");
+                regexHref = regexHref.Replace("(*)", ".*?");
+                
+                // regexHref = regexHref.Replace(" ", "\\s+");
                 //格式化
                 //20190523这里出现了问题，先注释掉
-               // regexHref = HtmlHelper.Instance.ParseCollectionStrings(regexHref);
-              
+                // regexHref = HtmlHelper.Instance.ParseCollectionStrings(regexHref);
+
             }
 
             Match mch = null;
@@ -94,9 +98,18 @@ namespace V5_DataCollection._Class.Gather
 
             MatchCollection matches = reg.Matches(pageContent);
             for (mch = reg.Match(pageContent); mch.Success; mch = mch.NextMatch()) {
-                url = CollectionHelper.Instance.FormatUrl(testUrl, mch.Groups["链接"].Value);
-                title = mch.Groups["标题"].Value;
-                cover = CollectionHelper.Instance.FormatUrl(testUrl, mch.Groups["封面"].Value);
+                if (mch.Groups["链接"] != null)
+                {
+                    url = CollectionHelper.Instance.FormatUrl(testUrl, mch.Groups["链接"].Value);
+                }
+                if (mch.Groups["标题"] != null)
+                {
+                    title = mch.Groups["标题"].Value;
+                }
+                if (mch.Groups["封面"] != null)
+                {
+                    cover = CollectionHelper.Instance.FormatUrl(testUrl, mch.Groups["封面"].Value);
+                }
                 if (Model.LinkUrlMustIncludeStr.Trim() != "") {
                     if (url.IndexOf(Model.LinkUrlMustIncludeStr) == -1) {
                         continue;

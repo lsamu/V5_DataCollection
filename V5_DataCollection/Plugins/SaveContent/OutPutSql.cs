@@ -33,7 +33,7 @@ namespace V5_DataCollection.Plugins.SaveContent
                     }
                     sbContent.AppendLine(sql);
                 }
-                using (StreamWriter sw = new StreamWriter(task.SaveDirectory2 + "\\sql.sql", false, Encoding.UTF8))
+                using (StreamWriter sw = new StreamWriter(task.SaveDirectory2 + $"\\{task.TaskName}sql{DateTime.Now.ToString("-yyyy-MM-dd")}.sql", false, Encoding.UTF8))
                 {
                     sw.Write(sbContent.ToString());
                     sw.Flush();

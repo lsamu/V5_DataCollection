@@ -43,7 +43,19 @@ namespace V5_DataCollection.Forms.Task
             tsmExportData.DropDownItems.Clear();
             foreach (IOutPutFormat t in PluginUtility.ListIOutputFormatPlugin)
             {
-                var item = new ToolStripMenuItem(t.Format);
+                var item = new ToolStripMenuItem(t.Format);               
+                item.MouseEnter += (object s, EventArgs e1) => {
+                    var id = Get_DataViewID();
+                    var Model = new DALTask().GetModel(id);
+                    if (Model.IsSaveLocal2 != null && Model.IsSaveLocal2.Value == 1)
+                    {
+                        item.Enabled = true;
+                    }
+                    else
+                    {
+                        item.Enabled = false;
+                    }
+                };
                 item.Click += (object s, EventArgs e1) =>
                   {
                       var id = Get_DataViewID();
@@ -560,6 +572,14 @@ namespace V5_DataCollection.Forms.Task
                 p.StartInfo.FileName = "explorer.exe";
                 p.StartInfo.Arguments =  AppDomain.CurrentDomain.BaseDirectory + "Data\\Collection\\" + model.TaskName + "\\Images\\";
                 p.Start();
+            }
+        }
+
+        private void tsmExportData_MouseEnter(object sender, EventArgs e)
+        {
+            foreach (ToolStripMenuItem item in tsmExportData.DropDownItems)
+            {
+                item.Enabled = true;
             }
         }
     }

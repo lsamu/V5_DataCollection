@@ -150,7 +150,7 @@ namespace V5_DataCollection._Class.Gather
                             }
                         }
                         if (addFlag) {
-                            string msg = url + "==" + HtmlHelper.Instance.ParseTags(title);
+                            string msg = url + "  ==" + HtmlHelper.Instance.ParseTags(title);
                             if (!DALContentHelper.ChkExistSpiderResult(modelTask.TaskName, url)) {
                                 _listLinkUrl.Enqueue(m);
                             }

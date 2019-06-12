@@ -28,7 +28,7 @@ namespace V5_DataCollection.Plugins.SaveContent
                     }
                     str.Append( "\r\n\r\n");
                 }
-                using (StreamWriter sw = new StreamWriter(task.SaveDirectory2 + $"\\{task.TaskName}采集结果文本保存.txt", false, Encoding.UTF8))
+                using (StreamWriter sw = new StreamWriter(task.SaveDirectory2 + $"\\{task.TaskName}采集结果文本保存{DateTime.Now.ToString("-yyyy-MM-dd")}.txt", false, Encoding.UTF8))
                 {
                     sw.Write(str.ToString());
                     sw.Flush();

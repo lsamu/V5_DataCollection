@@ -9,7 +9,7 @@ using V5_DataCollection._Class.PythonExt;
 using V5_Model;
 using V5_WinLibs.Core;
 using V5_WinLibs.DBUtility;
-
+using System.Text.RegularExpressions;
 namespace V5_DataCollection._Class.Gather {
     public class SpiderViewHelper {
 
@@ -276,12 +276,16 @@ namespace V5_DataCollection._Class.Gather {
             if (!string.IsNullOrEmpty(itemTaskLebel.LabelReplace)) {
                 foreach (string str in itemTaskLebel.LabelReplace.Split(new string[] { "$$$$" }, StringSplitOptions.RemoveEmptyEntries)) {
                     string[] ListStr = str.Split(new string[] { "||" }, StringSplitOptions.RemoveEmptyEntries);
+                    Regex reg = new Regex(ListStr[0], RegexOptions.IgnoreCase);
                     if (ListStr.Length == 1)
                     {
-                        CutContent = CutContent.Replace(ListStr[0], "");
+                        CutContent = reg.Replace(CutContent, "");// CutContent.Replace(ListStr[0], "");
                     }
                     else
-                    CutContent = CutContent.Replace(ListStr[0], ListStr[1]);
+                    {
+                        CutContent = reg.Replace(CutContent, ListStr[1]);
+                      //  CutContent = CutContent.Replace(ListStr[0], ListStr[1]);
+                    }
                 }
             }
             #endregion

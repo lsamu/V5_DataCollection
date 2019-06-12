@@ -25,7 +25,7 @@ namespace V5_DataCollection.Plugins.SaveContent
         {
             try
             {
-                CreateExcel(task.SaveDirectory2 + $"\\{task.TaskName}导出结果.xlsx", dt);
+                CreateExcel(task.SaveDirectory2 + $"\\{task.TaskName}导出结果{DateTime.Now.ToString("-yyyy-MM-dd")}.xlsx", dt);
             }
             catch (Exception ex)
             {

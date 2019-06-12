@@ -376,11 +376,12 @@ namespace V5_WinLibs.Core {
             return s;
         }
         public string UnParseCollectionStrings(string s) {
-            string[] chars = "\\,^,$,{,[,.,(,*,+,?,!,#,|".Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries);
+            string[] chars = "\\,^,$,{,[,.,(,),*,+,?,!,#,|".Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries);
             for (int i = 0; i < chars.Length; i++) {
                 s = s.Replace("\\" + chars[i], chars[i]);
             }
-            s = Regex.Replace(s, "\\s+", @"\s+");
+         //   s = Regex.Replace(s, "\\s+", @"\s+");
+            s = s.Replace("\\s+", " ");
             return s;
         }
         /// <summary>
